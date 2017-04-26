@@ -26,6 +26,10 @@ namespace InspectionApp
 		
 		public static void UpdateIdValues()
 		{
+			global::BusinessLayer.Resource.String.ApplicationName = global::InspectionApp.Resource.String.ApplicationName;
+			global::BusinessLayer.Resource.String.Hello = global::InspectionApp.Resource.String.Hello;
+			global::BusinessObjects.Resource.String.ApplicationName = global::InspectionApp.Resource.String.ApplicationName;
+			global::BusinessObjects.Resource.String.Hello = global::InspectionApp.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
