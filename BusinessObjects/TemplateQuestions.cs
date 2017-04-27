@@ -1,7 +1,8 @@
+using SQLite;
 using System;
-using DataLayer;
 
-namespace DataLayer
+
+namespace BusinessObjects
 {
     public class TemplateQuestions
     {

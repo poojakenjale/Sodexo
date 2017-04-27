@@ -3,7 +3,7 @@ using BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using SQLite;
 
 namespace DataLayer
 {
@@ -65,6 +65,17 @@ namespace DataLayer
                 }
             }
         }
+
+        //public int SaveDefaultAudit()
+        //{
+        //    AuditDetails audit = new AuditDetails();
+        //    //audit.Id = 1;
+        //    audit.TemplateId = 1;
+        //    audit.Location = "CGI Mumbai";
+        //    audit.UserId = "CGI Admin";
+        //    audit.GPSCoordinate = "10,20";
+        //    return SaveAuditDetail(audit);
+        //}
         public void SaveAudit(string[] answers)
         {
             AuditDetails audit = new AuditDetails();

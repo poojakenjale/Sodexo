@@ -32,6 +32,22 @@ namespace InspectionApp
 			global::BusinessObjects.Resource.String.Hello = global::InspectionApp.Resource.String.Hello;
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Answers_array = 2131034112;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -49,7 +65,10 @@ namespace InspectionApp
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Add = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -61,11 +80,69 @@ namespace InspectionApp
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f060001
+			public const int Answer1 = 2131099649;
+			
+			// aapt resource value: 0x7f06000b
+			public const int Clear = 2131099659;
+			
+			// aapt resource value: 0x7f06000c
+			public const int FillAudit = 2131099660;
+			
+			// aapt resource value: 0x7f06000a
+			public const int SaveQuestion = 2131099658;
+			
+			// aapt resource value: 0x7f06000d
+			public const int ViewAudit = 2131099661;
+			
+			// aapt resource value: 0x7f060007
+			public const int chkAnswer3 = 2131099655;
+			
+			// aapt resource value: 0x7f060000
+			public const int labelQuestion1 = 2131099648;
+			
+			// aapt resource value: 0x7f060002
+			public const int labelQuestion2 = 2131099650;
+			
+			// aapt resource value: 0x7f060006
+			public const int labelQuestion3 = 2131099654;
+			
+			// aapt resource value: 0x7f060008
+			public const int labelQuestion4 = 2131099656;
+			
+			// aapt resource value: 0x7f060005
+			public const int radio_No = 2131099653;
+			
+			// aapt resource value: 0x7f060004
+			public const int radio_Yes = 2131099652;
+			
+			// aapt resource value: 0x7f060003
+			public const int rdoQuestion2 = 2131099651;
+			
+			// aapt resource value: 0x7f060009
+			public const int spinnerAnswer4 = 2131099657;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int AuditQuestionAnswers = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
 			
 			static Layout()
 			{
@@ -79,6 +156,9 @@ namespace InspectionApp
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f040002
+			public const int Answer_prompt = 2130968578;
 			
 			// aapt resource value: 0x7f040001
 			public const int ApplicationName = 2130968577;

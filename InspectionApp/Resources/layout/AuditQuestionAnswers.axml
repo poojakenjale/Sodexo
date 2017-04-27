@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <TextView
+      android:id="@+id/labelQuestion1"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Type here:"/>
+  <EditText
+      android:id="@+id/Answer1"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:drawable/editbox_background"
+      android:layout_below="@id/labelQuestion1"/>
+
+  <TextView
+       android:id="@+id/labelQuestion2"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:text="Type here:"
+        android:layout_below="@id/Answer1"/>
+  <RadioGroup
+    android:id="@+id/rdoQuestion2"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+    android:layout_below="@id/labelQuestion2">
+    <RadioButton android:id="@+id/radio_Yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes" />
+    <RadioButton android:id="@+id/radio_No"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No" />
+  </RadioGroup>
+  <TextView
+       android:id="@+id/labelQuestion3"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:text="Type here:"
+        android:layout_below="@id/rdoQuestion2"/>
+
+  <CheckBox android:id="@+id/chkAnswer3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="check it out"
+      android:layout_below="@id/labelQuestion3"/>
+
+
+  <TextView
+        android:id="@+id/labelQuestion4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Type here:"
+         android:layout_below="@id/chkAnswer3"/>
+
+  <Spinner
+         android:id="@+id/spinnerAnswer4"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:prompt="@string/Answer_prompt"
+         android:layout_below="@id/labelQuestion4"
+    />
+
+  <Button
+      android:id="@+id/SaveQuestion"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/spinnerAnswer4"
+      android:layout_alignParentRight="true"
+      android:layout_marginLeft="10dip"
+      android:text="Save" />
+  <Button
+    android:id="@+id/Clear"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toLeftOf="@id/SaveQuestion"
+      android:layout_alignTop="@id/SaveQuestion"
+      android:text="Clear" />
+</RelativeLayout>

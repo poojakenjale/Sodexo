@@ -1,7 +1,7 @@
+using SQLite;
 using System;
 
-using System;
-namespace DataLayer
+namespace BusinessObjects
 {
     public class AuditTemplate
     {

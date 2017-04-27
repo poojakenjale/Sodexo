@@ -1,8 +1,9 @@
-using DataLayer;
+
+using SQLite;
 using System;
 
 namespace BusinessObjects
- {
+{
     public class AuditDetails
     {
         [PrimaryKey, AutoIncrement]

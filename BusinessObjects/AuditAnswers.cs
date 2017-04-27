@@ -1,7 +1,7 @@
 using System;
 
 
-namespace DataLayer
+namespace BusinessObjects
 {
     public class AuditAnswers
     {
