@@ -109,23 +109,29 @@ namespace InspectionApp
             int id = manageTemplate.SaveDefaultAudit();
 
             List<AuditAnswers> userAnswers = new List<AuditAnswers>();
-            AuditAnswers answer = new AuditAnswers();
-            answer.AuditId = id;
-            answer.Answer = Answer1.Text;
-            answer.QuestionId = 1;
-            userAnswers.Add(answer);
+            AuditAnswers answer1 = new AuditAnswers();
+            answer1.AuditId = id;
+            answer1.Answer = Answer1.Text;
+            answer1.QuestionId = 1;
+            userAnswers.Add(answer1);
 
-            answer.Answer = radioButton.Text;
-            answer.QuestionId = 2;
-            userAnswers.Add(answer);
+            AuditAnswers answer2 = new AuditAnswers();
+            answer2.AuditId = id;
+            answer2.Answer = radioButton.Text;
+            answer2.QuestionId = 2;
+            userAnswers.Add(answer2);
 
-            answer.Answer = checkbox.Checked.ToString();
-            answer.QuestionId = 3;
-            userAnswers.Add(answer);
+            AuditAnswers answer3 = new AuditAnswers();
+            answer3.AuditId = id;
+            answer3.Answer = checkbox.Checked.ToString();
+            answer3.QuestionId = 3;
+            userAnswers.Add(answer3);
 
-            answer.Answer = sp.SelectedItem.ToString();
-            answer.QuestionId = 4;
-            userAnswers.Add(answer);
+            AuditAnswers answer4 = new AuditAnswers();
+            answer4.AuditId = id;
+            answer4.Answer = sp.SelectedItem.ToString();
+            answer4.QuestionId = 4;
+            userAnswers.Add(answer4);
 
             
             manageTemplate.SaveAnswers(userAnswers);
