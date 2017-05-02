@@ -70,6 +70,9 @@ namespace InspectionApp
 			// aapt resource value: 0x7f020001
 			public const int Icon = 2130837505;
 			
+			// aapt resource value: 0x7f020002
+			public const int Upload = 2130837506;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -83,23 +86,23 @@ namespace InspectionApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int Answer1 = 2131099649;
+			// aapt resource value: 0x7f060002
+			public const int Answer1 = 2131099650;
 			
 			// aapt resource value: 0x7f06001a
 			public const int AuditListing = 2131099674;
 			
-			// aapt resource value: 0x7f060002
-			public const int Camera1 = 2131099650;
+			// aapt resource value: 0x7f060000
+			public const int Camera1 = 2131099648;
 			
-			// aapt resource value: 0x7f060008
-			public const int Camera2 = 2131099656;
+			// aapt resource value: 0x7f060004
+			public const int Camera2 = 2131099652;
 			
-			// aapt resource value: 0x7f06000c
-			public const int Camera3 = 2131099660;
+			// aapt resource value: 0x7f06000a
+			public const int Camera3 = 2131099658;
 			
-			// aapt resource value: 0x7f060010
-			public const int Camera4 = 2131099664;
+			// aapt resource value: 0x7f06000e
+			public const int Camera4 = 2131099662;
 			
 			// aapt resource value: 0x7f060013
 			public const int Clear = 2131099667;
@@ -128,8 +131,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060017
 			public const int back = 2131099671;
 			
-			// aapt resource value: 0x7f06000b
-			public const int chkAnswer3 = 2131099659;
+			// aapt resource value: 0x7f06000c
+			public const int chkAnswer3 = 2131099660;
 			
 			// aapt resource value: 0x7f060003
 			public const int fileQuestion1 = 2131099651;
@@ -146,32 +149,32 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060016
 			public const int imageCamera = 2131099670;
 			
-			// aapt resource value: 0x7f060000
-			public const int labelQuestion1 = 2131099648;
-			
-			// aapt resource value: 0x7f060004
-			public const int labelQuestion2 = 2131099652;
-			
-			// aapt resource value: 0x7f06000a
-			public const int labelQuestion3 = 2131099658;
-			
-			// aapt resource value: 0x7f06000e
-			public const int labelQuestion4 = 2131099662;
-			
-			// aapt resource value: 0x7f060007
-			public const int radio_No = 2131099655;
-			
-			// aapt resource value: 0x7f060006
-			public const int radio_Yes = 2131099654;
+			// aapt resource value: 0x7f060001
+			public const int labelQuestion1 = 2131099649;
 			
 			// aapt resource value: 0x7f060005
-			public const int rdoQuestion2 = 2131099653;
+			public const int labelQuestion2 = 2131099653;
+			
+			// aapt resource value: 0x7f06000b
+			public const int labelQuestion3 = 2131099659;
+			
+			// aapt resource value: 0x7f06000f
+			public const int labelQuestion4 = 2131099663;
+			
+			// aapt resource value: 0x7f060008
+			public const int radio_No = 2131099656;
+			
+			// aapt resource value: 0x7f060007
+			public const int radio_Yes = 2131099655;
+			
+			// aapt resource value: 0x7f060006
+			public const int rdoQuestion2 = 2131099654;
 			
 			// aapt resource value: 0x7f060014
 			public const int recordVideo = 2131099668;
 			
-			// aapt resource value: 0x7f06000f
-			public const int spinnerAnswer4 = 2131099663;
+			// aapt resource value: 0x7f060010
+			public const int spinnerAnswer4 = 2131099664;
 			
 			// aapt resource value: 0x7f060015
 			public const int takePicture = 2131099669;

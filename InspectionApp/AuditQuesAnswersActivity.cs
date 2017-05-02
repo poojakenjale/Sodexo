@@ -60,11 +60,10 @@ namespace InspectionApp
             Button Clear = FindViewById<Button>(Resource.Id.Clear);
 
 			//Camera code
-			Button Camera1 = FindViewById<Button>(Resource.Id.Camera1);
-			Button Camera2 = FindViewById<Button>(Resource.Id.Camera2);
-			Button Camera3 = FindViewById<Button>(Resource.Id.Camera3);
-			Button Camera4 = FindViewById<Button>(Resource.Id.Camera4);
-
+			ImageButton Camera1 = FindViewById<ImageButton>(Resource.Id.Camera1);
+			ImageButton Camera2 = FindViewById<ImageButton>(Resource.Id.Camera2);
+			ImageButton Camera3 = FindViewById<ImageButton>(Resource.Id.Camera3);
+			ImageButton Camera4 = FindViewById<ImageButton>(Resource.Id.Camera4);
 			//Video
 			Button recordVideo = FindViewById<Button>(Resource.Id.recordVideo);
 
@@ -73,6 +72,7 @@ namespace InspectionApp
 			fileQuestion2 = FindViewById<TextView>(Resource.Id.fileQuestion2);
 			fileQuestion3 = FindViewById<TextView>(Resource.Id.fileQuestion3);
 			fileQuestion4 = FindViewById<TextView>(Resource.Id.fileQuestion4);
+			
 			fileQuestion1.Visibility = ViewStates.Gone;
 			fileQuestion2.Visibility = ViewStates.Gone;
 			fileQuestion3.Visibility = ViewStates.Gone;
@@ -257,24 +257,37 @@ namespace InspectionApp
 			txtView.Visibility = ViewStates.Visible;
 			txtView.MovementMethod = LinkMovementMethod.Instance;
 			txtView.Text = Path.GetFileName(imageFile);
+			string question = string.Empty;
 			switch (control)
 			{
 				case 1:
 					image1 = txtView.Text;
+					question = "Question1";
 						break;
 				case 2:
 					image2 = txtView.Text;
+					question = "Question2";
 					break;
 				case 3:
 					image3 = txtView.Text;
+					question = "Question3";
 					break;
 				case 4:
 					image4 = txtView.Text;
+					question = "Question4";
 					break;
 			}
+
+			txtView.Click += delegate {
+				var intent = new Intent(this, typeof(CameraActivity));
+				pushDataForImageFile(intent);
+				intent.PutExtra("viewImage", "1");
+				intent.PutExtra("Question", question);
+				StartActivity(intent);
+			};
 		}
 
-		private void OpenCamera(Button button, string question, Intent intentQuestion)
+		private void OpenCamera(ImageButton button, string question, Intent intentQuestion)
 		{
 			button.Click += delegate {
 				intentQuestion.PutExtra("Question", question);
