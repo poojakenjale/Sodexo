@@ -86,6 +86,9 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060001
 			public const int Answer1 = 2131099649;
 			
+			// aapt resource value: 0x7f06000e
+			public const int AuditListing = 2131099662;
+			
 			// aapt resource value: 0x7f06000b
 			public const int Clear = 2131099659;
 			

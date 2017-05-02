@@ -91,5 +91,10 @@ namespace BusinessLayer
             audit.GPSCoordinate = "10,20";
             return dbUpdates.SaveAuditDetail(audit);
         }
+
+        public List<AuditDetails> GetAllAudit()
+        {
+            return dbUpdates.GetAllAudits();
+        }
     }
 }
