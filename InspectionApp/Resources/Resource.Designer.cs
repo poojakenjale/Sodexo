@@ -86,6 +86,9 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060001
 			public const int Answer1 = 2131099649;
 			
+			// aapt resource value: 0x7f06001a
+			public const int AuditListing = 2131099674;
+			
 			// aapt resource value: 0x7f060002
 			public const int Camera1 = 2131099650;
 			
@@ -104,29 +107,26 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060018
 			public const int FillAudit = 2131099672;
 			
-			// aapt resource value: 0x7f06001c
-			public const int Play = 2131099676;
-			
-			// aapt resource value: 0x7f06001a
-			public const int Record = 2131099674;
-			
 			// aapt resource value: 0x7f06001d
-			public const int SampleVideoView = 2131099677;
+			public const int Play = 2131099677;
+			
+			// aapt resource value: 0x7f06001b
+			public const int Record = 2131099675;
+			
+			// aapt resource value: 0x7f06001e
+			public const int SampleVideoView = 2131099678;
 			
 			// aapt resource value: 0x7f060012
 			public const int SaveQuestion = 2131099666;
 			
-			// aapt resource value: 0x7f06001b
-			public const int Stop = 2131099675;
+			// aapt resource value: 0x7f06001c
+			public const int Stop = 2131099676;
 			
 			// aapt resource value: 0x7f060019
 			public const int ViewAudit = 2131099673;
 			
 			// aapt resource value: 0x7f060017
 			public const int back = 2131099671;
-			
-			// aapt resource value: 0x7f06000e
-			public const int AuditListing = 2131099662;
 			
 			// aapt resource value: 0x7f06000b
 			public const int chkAnswer3 = 2131099659;
