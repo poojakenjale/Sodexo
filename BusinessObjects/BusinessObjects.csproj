@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
     <Compile Include="AuditAnswers.cs" />
     <Compile Include="AuditDetails.cs" />
     <Compile Include="AuditTemplate.cs" />
+    <Compile Include="BitmapHelpers.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateQuestions.cs" />
