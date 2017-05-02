@@ -89,7 +89,7 @@ namespace InspectionApp
             //spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.Answers_array, Android.Resource.Layout.SimpleSpinnerItem);
-
+            
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 

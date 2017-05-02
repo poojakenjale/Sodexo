@@ -179,6 +179,21 @@ namespace DataLayer
                 }
             }
         }
+
+        public List<AuditDetails> GetAllAudits()
+        {
+            using (var database = new SQLiteConnection(_helper.ReadableDatabase.Path))
+            {
+                try
+                {
+                    return database.Table<AuditDetails>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
     }
     
 }

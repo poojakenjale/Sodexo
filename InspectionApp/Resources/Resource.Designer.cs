@@ -125,6 +125,9 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060017
 			public const int back = 2131099671;
 			
+			// aapt resource value: 0x7f06000e
+			public const int AuditListing = 2131099662;
+			
 			// aapt resource value: 0x7f06000b
 			public const int chkAnswer3 = 2131099659;
 			
