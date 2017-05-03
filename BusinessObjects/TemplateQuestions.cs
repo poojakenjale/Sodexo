@@ -1,11 +1,11 @@
 using System;
-using DataLayer;
+//using DataLayer;
 
 namespace DataLayer
 {
     public class TemplateQuestions
     {
-        [PrimaryKey, AutoIncrement]
+        //[PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public int TemplateId { get; set; }

@@ -27,7 +27,7 @@ namespace InspectionApp
 
         private void btnStartAudit_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(AuditDetails));
+            StartActivity(typeof(AuditDetailsActivity));
         }
     }
 }

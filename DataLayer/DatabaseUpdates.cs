@@ -120,6 +120,22 @@ namespace DataLayer
         }
 
         //retrieve a specific user by querying against their first name
+        public List<AuditTemplate> GetAuditTemplates()
+        {
+            using (var database = new SQLiteConnection(_helper.ReadableDatabase.Path))
+            {
+                try
+                {
+                    return database.Table<AuditTemplate>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
+        //retrieve a specific user by querying against their first name
         public AuditTemplate GetAuditTemplate(string name)
         {
             using (var database = new SQLiteConnection(_helper.ReadableDatabase.Path))

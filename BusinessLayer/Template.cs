@@ -55,6 +55,11 @@ namespace BusinessLayer
             
         }
 
+        public List<AuditTemplate> GetTemplates()
+        {
+            return dbUpdates.GetAuditTemplates();
+        }
+
         public void SetContext(Context context)
         {
             dbUpdates.SetContext(context);
