@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditDetailsAdapter.cs" />
     <Compile Include="AuditQuesAnswersActivity.cs" />
     <Compile Include="CameraActivity.cs" />
     <Compile Include="MainActivity.cs" />
@@ -75,6 +76,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Video.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AuditDetailItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
