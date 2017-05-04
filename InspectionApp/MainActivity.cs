@@ -23,8 +23,13 @@ namespace InspectionApp
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
             FillAudit.Click += FillAudit_Click;
 
-            manageTemplate.SetContext(this);            
-           var auditDetailsAdapter = new AuditDetailsAdapter(this);
+            manageTemplate.SetContext(this);
+            List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
+            //if (auditTest.Count == 0)
+            //{
+            //    manageTemplate.SaveDefaultAudit();
+            //}
+            var auditDetailsAdapter = new AuditDetailsAdapter(this);
            auditListingView.Adapter = auditDetailsAdapter;
 
         }

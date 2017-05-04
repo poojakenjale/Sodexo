@@ -91,13 +91,13 @@ namespace BusinessLayer
             audit1.UserId = "CGI Admin";
             audit1.GPSCoordinate = "20,20";
             int audit1Id = dbUpdates.SaveAuditDetail(audit1);
-            AuditDetails audit = new AuditDetails();
-            //audit.Id = 1;
-            audit.TemplateId = 1;
-            audit.Location = "Seepz Mumbai";
-            audit.UserId = "Seepz Admin";
-            audit.GPSCoordinate = "20,20";
-            int idtest= dbUpdates.SaveAuditDetail(audit);
+            //AuditDetails audit = new AuditDetails();
+            ////audit.Id = 1;
+            //audit.TemplateId = 1;
+            //audit.Location = "Seepz Mumbai";
+            //audit.UserId = "Seepz Admin";
+            //audit.GPSCoordinate = "20,20";
+            //int idtest= dbUpdates.SaveAuditDetail(audit);
             return audit1Id;
         }
 

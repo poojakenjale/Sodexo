@@ -187,7 +187,15 @@ namespace InspectionApp
             var sp = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
             CheckBox checkbox = FindViewById<CheckBox>(Resource.Id.chkAnswer3);
             List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
-			int id = manageTemplate.SaveDefaultAudit();
+            int id ;
+            if (auditTest.Count == 0)
+            {
+                 id = manageTemplate.SaveDefaultAudit();
+            }
+            else
+            {
+                id = 1;
+            }
             auditTest = manageTemplate.GetAllAudit();
 
             List<AuditAnswers> userAnswers = new List<AuditAnswers>();
@@ -221,6 +229,9 @@ namespace InspectionApp
 
             
             manageTemplate.SaveAnswers(userAnswers);
+            Toast.MakeText(this, "Answers saved successfully", ToastLength.Long);
+            var intentmain = new Intent(this, typeof(MainActivity));
+            StartActivity(intentmain);
         }
 
 		private void pushDataForImageFile(Intent intent)
