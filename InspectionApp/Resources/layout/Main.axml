@@ -11,14 +11,14 @@
         android:padding="100dip"
         android:src="@drawable/Add"
         android:layout_alignParentRight="true" />
-    <Button
+    <TextView
         android:id="@+id/ViewAudit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/FillAudit"
-        android:text="View the audit details" />
+        android:text="Audit List" />
     <ListView
-        android:id="@+id/AuditListing"
+        android:id="@+id/AuditListingView"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

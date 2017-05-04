@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SQLite;
+using Android.Database;
 
 namespace DataLayer
 {
@@ -27,6 +28,7 @@ namespace DataLayer
             {
                 try
                 {
+                    
                     return db.Insert(addtemp);
                 }
                 catch (Exception ex)
@@ -106,7 +108,7 @@ namespace DataLayer
             {
                 try
                 {
-                    return database.InsertOrReplace(auditdetail);
+                    return database.Insert(auditdetail);
                 }
                 catch (Exception ex)
                 {
@@ -121,7 +123,7 @@ namespace DataLayer
             {
                 try
                 {
-                    return database.InsertOrReplace(answer);
+                    return database.Insert(answer);
                 }
                 catch (Exception ex)
                 {
@@ -202,6 +204,7 @@ namespace DataLayer
             {
                 try
                 {
+                    
                     return database.Table<AuditDetails>().ToList();
                 }
                 catch (Exception ex)
@@ -210,6 +213,8 @@ namespace DataLayer
                 }
             }
         }
+
+       
     }
     
 }

@@ -5,6 +5,7 @@ using System.Text;
 using DataLayer;
 using BusinessObjects;
 using Android.Content;
+using Android.Database;
 
 namespace BusinessLayer
 {
@@ -92,13 +93,21 @@ namespace BusinessLayer
         }
         public int SaveDefaultAudit()
         {
-            AuditDetails audit = new AuditDetails();
+            AuditDetails audit1 = new AuditDetails();
             //audit.Id = 1;
-            audit.TemplateId = 1;
-            audit.Location = "CGI Mumbai";
-            audit.UserId = "CGI Admin";
-            audit.GPSCoordinate = "10,20";
-            return dbUpdates.SaveAuditDetail(audit);
+            audit1.TemplateId = 1;
+            audit1.Location = "CGI Mumbai";
+            audit1.UserId = "CGI Admin";
+            audit1.GPSCoordinate = "20,20";
+            int audit1Id = dbUpdates.SaveAuditDetail(audit1);
+            //AuditDetails audit = new AuditDetails();
+            ////audit.Id = 1;
+            //audit.TemplateId = 1;
+            //audit.Location = "Seepz Mumbai";
+            //audit.UserId = "Seepz Admin";
+            //audit.GPSCoordinate = "20,20";
+            //int idtest= dbUpdates.SaveAuditDetail(audit);
+            return audit1Id;
         }
 
         public List<AuditDetails> GetAllAudit()

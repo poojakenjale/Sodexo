@@ -186,40 +186,52 @@ namespace InspectionApp
             RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
             var sp = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
             CheckBox checkbox = FindViewById<CheckBox>(Resource.Id.chkAnswer3);
-
-			int id = manageTemplate.SaveDefaultAudit();
+            List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
+            int id ;
+            if (auditTest.Count == 0)
+            {
+                 id = manageTemplate.SaveDefaultAudit();
+            }
+            else
+            {
+                id = 1;
+            }
+            auditTest = manageTemplate.GetAllAudit();
 
             List<AuditAnswers> userAnswers = new List<AuditAnswers>();
             AuditAnswers answer1 = new AuditAnswers();
             answer1.AuditId = id;
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
-			answer1.ImagePath = App._dir.ToString() + " " + fileQuestion1.Text;
+            answer1.ImagePath = "";// App._dir.ToString() + " " + fileQuestion1.Text;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
             answer2.AuditId = id;
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
-			answer2.ImagePath = App._dir.ToString() + " " + fileQuestion2.Text;
-			userAnswers.Add(answer2);
+			answer2.ImagePath = "";// App._dir.ToString() + " " + fileQuestion2.Text;
+            userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
             answer3.AuditId = id;
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
-			answer3.ImagePath = App._dir.ToString() + " " + fileQuestion3.Text;
-			userAnswers.Add(answer3);
+			answer3.ImagePath = "";// App._dir.ToString() + " " + fileQuestion3.Text;
+            userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
             answer4.AuditId = id;
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
-			answer4.ImagePath = App._dir.ToString() + " " + fileQuestion4.Text;
-			userAnswers.Add(answer4);
+			answer4.ImagePath = "";// App._dir.ToString() + " " + fileQuestion4.Text;
+            userAnswers.Add(answer4);
 
             
             manageTemplate.SaveAnswers(userAnswers);
+            Toast.MakeText(this, "Answers saved successfully", ToastLength.Long);
+            var intentmain = new Intent(this, typeof(MainActivity));
+            StartActivity(intentmain);
         }
 
 		private void pushDataForImageFile(Intent intent)
