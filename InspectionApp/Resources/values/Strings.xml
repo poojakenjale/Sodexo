@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
+    <string name="Answer_prompt">Select</string>
     <string name="ApplicationName">InspectionApp</string>
+  <string name="openCamera">Open Camera</string>
+  <string name="takePicture">Take Picture</string>
+  <string name="back">Back</string>
+  <string-array name="Answers_array">
+    <item>Always</item>
+    <item>Sometimes</item>
+    <item>Never</item>
+  </string-array>
 </resources>

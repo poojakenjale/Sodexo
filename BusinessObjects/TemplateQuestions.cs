@@ -1,11 +1,12 @@
+using SQLite;
 using System;
-//using DataLayer;
 
-namespace DataLayer
+
+namespace BusinessObjects
 {
     public class TemplateQuestions
     {
-        //[PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public int TemplateId { get; set; }

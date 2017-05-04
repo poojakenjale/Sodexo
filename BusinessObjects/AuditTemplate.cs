@@ -1,3 +1,4 @@
+using SQLite;
 using System;
 
 namespace BusinessObjects

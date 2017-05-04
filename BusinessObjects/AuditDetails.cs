@@ -1,11 +1,12 @@
-//using DataLayer;
+
+using SQLite;
 using System;
 
 namespace BusinessObjects
- {
+{
     public class AuditDetails
     {
-        //[PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string UserId { get; set; }
         public int TemplateId { get; set; }
