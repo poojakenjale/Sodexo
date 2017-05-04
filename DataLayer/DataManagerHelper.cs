@@ -54,6 +54,10 @@ namespace DataLayer
                             TemplateId           INTEGER NOT NULL,
                             Location        TEXT   NOT NULL,
                             GPSCoordinate        TEXT  NOT NULL)");
+            db.ExecSQL(@"
+                        CREATE TABLE IF NOT EXISTS Location (
+                            Id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                            Name       TEXT NOT NULL)");
         }
 
         public override void OnUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)

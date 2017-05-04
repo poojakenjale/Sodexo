@@ -9,9 +9,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
-       
-    </LinearLayout>
+        android:id="@+id/linearLayout1" />
     <AbsoluteLayout
         android:minWidth="25px"
         android:minHeight="25px"
@@ -21,35 +19,36 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-      <TextView
-           android:text="Select Template"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:id="@+id/textView1" />
-      <Spinner
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/textView1"
-          android:id="@+id/spnTemplates" />
-      <TextView
-          android:text="Select Location"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/textView1"
-          android:id="@+id/spnTemplates" />
-      <Spinner
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/spnTemplates"
-          android:id="@+id/spnLocation" />      
+        <TextView
+            android:text="Select Template"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView1"
+            android:id="@+id/spnTemplates" />
+        <TextView
+            android:text="Enter Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spnTemplates"
+            android:id="@+id/textView2" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView2"
+            android:id="@+id/txtLocation" />
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spnLocation"
+            android:layout_below="@id/txtLocation"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dip"
             android:text="Next" />
-        
     </RelativeLayout>
 </LinearLayout>

@@ -49,7 +49,7 @@ namespace InspectionApp
         private void FillAudit_Click(object sender, System.EventArgs e)
         {
 
-            StartActivity(typeof(AuditQuesAnswersActivity));
+            StartActivity(typeof(AuditDetails));
         }
     }
 }

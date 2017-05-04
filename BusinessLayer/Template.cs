@@ -86,6 +86,10 @@ namespace BusinessLayer
             }
         }
 
+        public int SaveAudit(AuditDetails audit)
+        { 
+            return dbUpdates.SaveAuditDetail(audit);
+        }
         public int SaveDefaultAudit()
         {
             AuditDetails audit = new AuditDetails();
