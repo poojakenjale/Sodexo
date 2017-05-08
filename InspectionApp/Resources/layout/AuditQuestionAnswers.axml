@@ -24,10 +24,11 @@
             android:text="Type here:" />
         <EditText
             android:id="@+id/Answer1"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
-            android:layout_below="@id/labelQuestion1" />
+            android:layout_below="@id/labelQuestion1"
+            android:layout_marginRight="0.0dp" />
         <TextView
             android:text="Text"
             android:layout_width="match_parent"
@@ -157,21 +158,5 @@
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dip"
             android:text="Save" />
-        <Button
-            android:id="@+id/Clear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fileQuestion4"
-            android:layout_toLeftOf="@id/SaveQuestion"
-            android:layout_alignTop="@id/SaveQuestion"
-            android:text="Clear" />
-        <Button
-            android:id="@+id/recordVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/Clear"
-            android:layout_alignTop="@id/SaveQuestion"
-            android:layout_below="@id/fileQuestion4"
-            android:text="Record Video" />
     </RelativeLayout>
 </ScrollView>

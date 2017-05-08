@@ -35,18 +35,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/spnTemplates"
             android:id="@+id/textView2" />
-        <TextView
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView2"
-            android:id="@+id/txtLocation" />
+            android:id="@+id/eTextLocation" />
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtLocation"
+            android:layout_below="@id/eTextLocation"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dip"
             android:text="Next" />

@@ -29,15 +29,16 @@ namespace InspectionApp
 		string image2 = string.Empty;
 		string image3 = string.Empty;
 		string image4 = string.Empty;
-		
-		private Template manageTemplate = new Template();
+        int auditID = 0;
+
+        private Template manageTemplate = new Template();
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
 			// Set our view from the "main" layout resource
             SetContentView(Resource.Layout.AuditQuestionAnswers);
-            string auditID = Intent.GetStringExtra("auditId") ?? "Data not available";
+            auditID = Intent.GetIntExtra("auditId",0);
 			getDataForImageFile(Intent);
 
 			TextView Question1 = FindViewById<TextView>(Resource.Id.labelQuestion1);
@@ -56,17 +57,14 @@ namespace InspectionApp
             //Button SaveQuestion1 = FindViewById<Button>(Resource.Id.SaveQuestion1);
             //Button SaveQuestion2 = FindViewById<Button>(Resource.Id.SaveQuestion2);
             //Button SaveQuestion3 = FindViewById<Button>(Resource.Id.SaveQuestion3);
-            Button SaveQuestion = FindViewById<Button>(Resource.Id.SaveQuestion);
-            Button Clear = FindViewById<Button>(Resource.Id.Clear);
+            Button SaveQuestion = FindViewById<Button>(Resource.Id.SaveQuestion);            
 
 			//Camera code
 			ImageButton Camera1 = FindViewById<ImageButton>(Resource.Id.Camera1);
 			ImageButton Camera2 = FindViewById<ImageButton>(Resource.Id.Camera2);
 			ImageButton Camera3 = FindViewById<ImageButton>(Resource.Id.Camera3);
 			ImageButton Camera4 = FindViewById<ImageButton>(Resource.Id.Camera4);
-			//Video
-			Button recordVideo = FindViewById<Button>(Resource.Id.recordVideo);
-
+			
 			//Camera
 			fileQuestion1 = FindViewById<TextView>(Resource.Id.fileQuestion1);
 			fileQuestion2 = FindViewById<TextView>(Resource.Id.fileQuestion2);
@@ -93,17 +91,16 @@ namespace InspectionApp
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
-            manageTemplate.SetContext(this);
-            manageTemplate.SetDefaultTemplate();
+            manageTemplate.SetContext(this);            
             List<TemplateQuestions> Questions = new List<TemplateQuestions>();
             Questions = manageTemplate.GetTemplateQuestions();
             Question1.Text = Questions[0].QuestionDescription;
             Question2.Text = Questions[1].QuestionDescription;
             Question3.Text = Questions[2].QuestionDescription;
             Question4.Text = Questions[3].QuestionDescription;
-            if (auditID == "1")
+            if (auditID == 1)
             {
-                SaveQuestion.Visibility = Clear.Visibility = Android.Views.ViewStates.Gone;
+                SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
 				List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(1);
 				if (auditAnswers.Count > 0)
 				{
@@ -171,13 +168,14 @@ namespace InspectionApp
 				SaveQuestion.Click += SaveQuestion_Click;
             }
 
-			//Video
-			var intentVideo = new Intent(this, typeof(VideoActivity));
-			recordVideo.Click += delegate {
-					pushDataForImageFile(intentVideo);
-					StartActivity(intentVideo);
-				};
-		}
+            //Video
+            //var intentVideo = new Intent(this, typeof(VideoActivity));
+            //recordVideo.Click += delegate
+            //{
+            //    pushDataForImageFile(intentVideo);
+            //    StartActivity(intentVideo);
+            //};
+        }
 
         private void SaveQuestion_Click(object sender, System.EventArgs e)
         {
@@ -186,42 +184,42 @@ namespace InspectionApp
             RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
             var sp = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
             CheckBox checkbox = FindViewById<CheckBox>(Resource.Id.chkAnswer3);
-            List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
-            int id ;
-            if (auditTest.Count == 0)
-            {
-                 id = manageTemplate.SaveDefaultAudit();
-            }
-            else
-            {
-                id = 1;
-            }
-            auditTest = manageTemplate.GetAllAudit();
+            //List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
+            //int id ;
+            //if (auditTest.Count == 0)
+            //{
+            //     id = manageTemplate.SaveDefaultAudit();
+            //}
+            //else
+            //{
+            //    id = 1;
+            //}
+            //auditTest = manageTemplate.GetAllAudit();
 
             List<AuditAnswers> userAnswers = new List<AuditAnswers>();
             AuditAnswers answer1 = new AuditAnswers();
-            answer1.AuditId = id;
+            answer1.AuditId = auditID;
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
             answer1.ImagePath = "";// App._dir.ToString() + " " + fileQuestion1.Text;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
-            answer2.AuditId = id;
+            answer2.AuditId = auditID;
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
 			answer2.ImagePath = "";// App._dir.ToString() + " " + fileQuestion2.Text;
             userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
-            answer3.AuditId = id;
+            answer3.AuditId = auditID;
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
 			answer3.ImagePath = "";// App._dir.ToString() + " " + fileQuestion3.Text;
             userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
-            answer4.AuditId = id;
+            answer4.AuditId = auditID;
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
 			answer4.ImagePath = "";// App._dir.ToString() + " " + fileQuestion4.Text;

@@ -38,8 +38,7 @@ namespace InspectionApp
 
         private void FillAudit_Click(object sender, System.EventArgs e)
         {
-
-            StartActivity(typeof(AuditDetails));
+            StartActivity(typeof(AuditDetailsActivity));
         }
     }
 }

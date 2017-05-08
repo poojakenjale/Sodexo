@@ -24,14 +24,14 @@ namespace InspectionApp
         string locationCoordinates;
         private Template manageTemplate = new Template();
         protected override void OnCreate(Bundle savedInstanceState)
-        {
-            Template template = new Template();
+        {           
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AuditDetails);
             // Create your application here
-            template.SetContext(this);
-            templateList = template.GetTemplates();
-
+            manageTemplate.SetContext(this);
+            manageTemplate.SetDefaultTemplate();
+            templateList = manageTemplate.GetTemplates();
+            InitializeLocationManager();
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, templateList);
             adapter.SetDropDownViewResource
                 (Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -45,7 +45,7 @@ namespace InspectionApp
 
         private void SaveAditDetails_Click(object sender, EventArgs e)
         {
-            TextView txtLocation = FindViewById<TextView>(Resource.Id.txtLocation);
+            TextView txtLocation = FindViewById<TextView>(Resource.Id.eTextLocation);
             Spinner spnTemplate = FindViewById<Spinner>(Resource.Id.spnTemplates);
             int templateId = templateList.ElementAt(spnTemplate.SelectedItemPosition).Id;
             AuditDetails auditDetails = new AuditDetails();
@@ -53,11 +53,19 @@ namespace InspectionApp
             auditDetails.TemplateId = templateId;
             auditDetails.UserId = "CGI Admin";//hardcoded for POC
             auditDetails.GPSCoordinate = locationCoordinates;
-            manageTemplate.SaveAudit(auditDetails);
+
+            //Test
+            int auditI = 1;
+            List<AuditDetails> audit = manageTemplate.GetAllAudit();
+            List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(auditI);
+
+            int Id = manageTemplate.SaveAudit(auditDetails);
+            var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
+            questionAnswer.PutExtra("auditID", Id);
+            StartActivity(questionAnswer);            
         }
         private void InitializeLocationManager()
-        {
-            
+        {            
             locationManager = (LocationManager)GetSystemService(LocationService);
             Criteria criteriaForLocationService = new Criteria
             {
@@ -72,8 +80,7 @@ namespace InspectionApp
             else
             {
                 locationProvider = string.Empty;
-            }
-            
+            }            
         }
 
         public void OnLocationChanged(Location location)
@@ -107,7 +114,6 @@ namespace InspectionApp
         {
             base.OnResume();
             locationManager.RequestLocationUpdates(locationProvider, 0, 0, this);
-
         }
         protected override void OnPause()
         {
