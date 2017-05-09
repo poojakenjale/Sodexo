@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace InspectionApp
 {
-    [Activity(Label = "AuditDetails")]
+    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
     public class AuditDetailsActivity : Activity,ILocationListener
     {
         List<AuditTemplate> templateList = null;
@@ -24,7 +24,7 @@ namespace InspectionApp
         string locationCoordinates;
         private Template manageTemplate = new Template();
         protected override void OnCreate(Bundle savedInstanceState)
-        {           
+        {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AuditDetails);
             // Create your application here
@@ -62,10 +62,10 @@ namespace InspectionApp
             int Id = manageTemplate.SaveAudit(auditDetails);
             var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
             questionAnswer.PutExtra("auditID", Id);
-            StartActivity(questionAnswer);            
+            StartActivity(questionAnswer);
         }
         private void InitializeLocationManager()
-        {            
+        {
             locationManager = (LocationManager)GetSystemService(LocationService);
             Criteria criteriaForLocationService = new Criteria
             {
@@ -80,7 +80,7 @@ namespace InspectionApp
             else
             {
                 locationProvider = string.Empty;
-            }            
+            }
         }
 
         public void OnLocationChanged(Location location)
@@ -92,7 +92,7 @@ namespace InspectionApp
             }
             else
             {
-                locationCoordinates = currentLocation.Latitude.ToString() +","+ currentLocation.Longitude.ToString();                
+                locationCoordinates = currentLocation.Latitude.ToString() +","+ currentLocation.Longitude.ToString();
             }
         }
 

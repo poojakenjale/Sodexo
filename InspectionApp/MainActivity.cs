@@ -11,7 +11,7 @@ using Android.Database;
 
 namespace InspectionApp
 {
-    [Activity(Label = "InspectionApp", Icon = "@drawable/icon")]
+    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
@@ -21,6 +21,8 @@ namespace InspectionApp
 
             // Set our view from the "main" layout resource
             this.SetContentView(Resource.Layout.Main);
+
+
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
             FillAudit.Click += FillAudit_Click;

@@ -14,8 +14,8 @@ using BusinessObjects;
 
 namespace InspectionApp
 {
-	[Activity(Label = "Camera", Icon = "@drawable/icon")]
-	public class CameraActivity : Activity
+    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    public class CameraActivity : Activity
 	{
 		ImageView _imageCamera;
 		Button back;
@@ -51,7 +51,7 @@ namespace InspectionApp
 			}
 			else
 			{
-				string fileName = (Question == "Question1") ? image1 : (Question == "Question2") ? image2 : (Question == "Question3") ? image3 : image4; 
+				string fileName = (Question == "Question1") ? image1 : (Question == "Question2") ? image2 : (Question == "Question3") ? image3 : image4;
 				App._file = new File(App._dir, fileName);
 				_imageCamera.SetImageURI(Android.Net.Uri.FromFile(App._file));
 				takePicture.Visibility = Android.Views.ViewStates.Gone;
@@ -61,7 +61,7 @@ namespace InspectionApp
 					pushDataForImageFile(second);
 					StartActivity(second);
 				};
-			}			
+			}
 		}
 
 		private void CreateDirectoryForPictures()
@@ -86,7 +86,7 @@ namespace InspectionApp
 		private void TakeAPicture(object sender, EventArgs eventArgs)
 		{
 			Intent intent = new Intent(MediaStore.ActionImageCapture);
-			App._file = new File(App._dir, String.Format("myPhoto_{0}_{1}.jpg", Guid.NewGuid(), Question));			
+			App._file = new File(App._dir, String.Format("myPhoto_{0}_{1}.jpg", Guid.NewGuid(), Question));
 			string imageFileName = Android.Net.Uri.FromFile(App._file).LastPathSegment;
 			switch (Question)
 			{
@@ -111,7 +111,7 @@ namespace InspectionApp
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
 			base.OnActivityResult(requestCode, resultCode, data);
-			
+
 			// Make it available in the gallery
 			Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
 			Android.Net.Uri contentUri = Android.Net.Uri.FromFile(App._file);
@@ -130,7 +130,7 @@ namespace InspectionApp
 				_imageCamera.SetImageBitmap(App.bitmap);
 				App.bitmap = null;
 			}
-			
+
 			back.Click += delegate {
 				var second = new Intent(this, typeof(AuditQuesAnswersActivity));
 				pushDataForImageFile(second);
