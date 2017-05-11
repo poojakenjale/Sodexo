@@ -60,9 +60,10 @@ namespace InspectionApp
             //Button SaveQuestion2 = FindViewById<Button>(Resource.Id.SaveQuestion2);
             //Button SaveQuestion3 = FindViewById<Button>(Resource.Id.SaveQuestion3);
             Button SaveQuestion = FindViewById<Button>(Resource.Id.SaveQuestion);
+            Button BackToList = FindViewById<Button>(Resource.Id.btnBackToList);
 
-			//Camera code
-			ImageButton Camera1 = FindViewById<ImageButton>(Resource.Id.Camera1);
+            //Camera code
+            ImageButton Camera1 = FindViewById<ImageButton>(Resource.Id.Camera1);
 			ImageButton Camera2 = FindViewById<ImageButton>(Resource.Id.Camera2);
 			ImageButton Camera3 = FindViewById<ImageButton>(Resource.Id.Camera3);
 			ImageButton Camera4 = FindViewById<ImageButton>(Resource.Id.Camera4);
@@ -103,7 +104,9 @@ namespace InspectionApp
             if (string.IsNullOrEmpty(isNewAudit))//view mode
             {
                 SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
-				List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(Convert.ToInt32(auditID));
+                BackToList.Click += BackToList_Click;
+
+                List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(Convert.ToInt32(auditID));
 				if (auditAnswers.Count > 0)
 				{
 					Answer1.Text = auditAnswers[0].Answer;
@@ -157,8 +160,9 @@ namespace InspectionApp
 			}
             else
             {
-				// Get images from gallery
-				if (image1 != string.Empty)
+                BackToList.Visibility = Android.Views.ViewStates.Gone;
+                // Get images from gallery
+                if (image1 != string.Empty)
 					ViewImage(fileQuestion1, image1, "Question1");
 				if (image2 != string.Empty)
 					ViewImage(fileQuestion2, image2, "Question2");
@@ -177,6 +181,12 @@ namespace InspectionApp
             //    pushDataForImageFile(intentVideo);
             //    StartActivity(intentVideo);
             //};
+        }
+
+        private void BackToList_Click(object sender, EventArgs e)
+        {
+            var intentmain = new Intent(this, typeof(MainActivity));
+            StartActivity(intentmain);
         }
 
         private void SaveQuestion_Click(object sender, System.EventArgs e)
