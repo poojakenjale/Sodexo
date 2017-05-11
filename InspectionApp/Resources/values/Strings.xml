@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Answer_prompt">Select</string>
-    <string name="ApplicationName">InspectionApp</string>
+    <string name="ApplicationName">INSPECTION</string>
   <string name="openCamera">Open Camera</string>
   <string name="takePicture">Take Picture</string>
   <string name="back">Back</string>
