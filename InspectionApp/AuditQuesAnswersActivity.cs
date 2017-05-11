@@ -18,7 +18,7 @@ using System.IO;
 
 namespace InspectionApp
 {
-    [Activity(Label = "AuditQuestionAnswers")]
+    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
     public class AuditQuesAnswersActivity : Activity
     {
 		TextView fileQuestion1;
@@ -59,20 +59,20 @@ namespace InspectionApp
             //Button SaveQuestion1 = FindViewById<Button>(Resource.Id.SaveQuestion1);
             //Button SaveQuestion2 = FindViewById<Button>(Resource.Id.SaveQuestion2);
             //Button SaveQuestion3 = FindViewById<Button>(Resource.Id.SaveQuestion3);
-            Button SaveQuestion = FindViewById<Button>(Resource.Id.SaveQuestion);            
+            Button SaveQuestion = FindViewById<Button>(Resource.Id.SaveQuestion);
 
 			//Camera code
 			ImageButton Camera1 = FindViewById<ImageButton>(Resource.Id.Camera1);
 			ImageButton Camera2 = FindViewById<ImageButton>(Resource.Id.Camera2);
 			ImageButton Camera3 = FindViewById<ImageButton>(Resource.Id.Camera3);
 			ImageButton Camera4 = FindViewById<ImageButton>(Resource.Id.Camera4);
-			
+
 			//Camera
 			fileQuestion1 = FindViewById<TextView>(Resource.Id.fileQuestion1);
 			fileQuestion2 = FindViewById<TextView>(Resource.Id.fileQuestion2);
 			fileQuestion3 = FindViewById<TextView>(Resource.Id.fileQuestion3);
 			fileQuestion4 = FindViewById<TextView>(Resource.Id.fileQuestion4);
-			
+
 			fileQuestion1.Visibility = ViewStates.Gone;
 			fileQuestion2.Visibility = ViewStates.Gone;
 			fileQuestion3.Visibility = ViewStates.Gone;
@@ -82,18 +82,18 @@ namespace InspectionApp
 			OpenCamera(Camera1, "Question1", intentQuestion);
 			OpenCamera(Camera2, "Question2", intentQuestion);
 			OpenCamera(Camera3, "Question3", intentQuestion);
-			OpenCamera(Camera4, "Question4", intentQuestion);			
+			OpenCamera(Camera4, "Question4", intentQuestion);
 
 			Spinner spinner = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
 
             //spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.Answers_array, Android.Resource.Layout.SimpleSpinnerItem);
-            
+
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
-            manageTemplate.SetContext(this);            
+            manageTemplate.SetContext(this);
             List<TemplateQuestions> Questions = new List<TemplateQuestions>();
             Questions = manageTemplate.GetTemplateQuestions();
             Question1.Text = Questions[0].QuestionDescription;
@@ -128,7 +128,7 @@ namespace InspectionApp
 					spinner.SetSelection(answersAdapater.GetPosition(auditAnswers[3].Answer));
 
 					//camera code
-					if (auditAnswers[0].ImagePath != string.Empty)					
+					if (auditAnswers[0].ImagePath != string.Empty)
 						GetImagePathForExisitng(auditAnswers[0].ImagePath, fileQuestion1, 1);
 
 					if (auditAnswers[1].ImagePath != string.Empty)
@@ -142,9 +142,9 @@ namespace InspectionApp
 
 				}
 				else
-				{					
+				{
 					// Get images from gallery
-					if (image1 != string.Empty)					
+					if (image1 != string.Empty)
 						ViewImage(fileQuestion1, image1, "Question1");
 					if (image2 != string.Empty)
 						ViewImage(fileQuestion2, image2, "Question2");
@@ -153,7 +153,7 @@ namespace InspectionApp
 					if (image4 != string.Empty)
 						ViewImage(fileQuestion4, image4, "Question4");
 				}
-				
+
 			}
             else
             {
@@ -227,7 +227,7 @@ namespace InspectionApp
 			answer4.ImagePath = "";// App._dir.ToString() + " " + fileQuestion4.Text;
             userAnswers.Add(answer4);
 
-            
+
             manageTemplate.SaveAnswers(userAnswers);
             Toast.MakeText(this, "Answers saved successfully", ToastLength.Long);
             var intentmain = new Intent(this, typeof(MainActivity));
@@ -256,7 +256,7 @@ namespace InspectionApp
 			txtView.Text = imageFile;
 			txtView.MovementMethod = LinkMovementMethod.Instance;
 			txtView.Click += delegate {
-				var intent = new Intent(this, typeof(CameraActivity));				
+				var intent = new Intent(this, typeof(CameraActivity));
 				pushDataForImageFile(intent);
 				intent.PutExtra("viewImage", "1");
 				intent.PutExtra("Question", question);

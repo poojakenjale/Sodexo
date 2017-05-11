@@ -102,6 +102,7 @@
     <Compile Include="AuditQuesAnswersActivity.cs" />
     <Compile Include="CameraActivity.cs" />
     <Compile Include="AuditDetailsActivity.cs" />
+    <Compile Include="HomeScreen.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MapViewActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -151,9 +152,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Add.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Upload.png" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +163,24 @@
       <Project>{245d7880-6527-4f7a-a37f-8ced5a027d58}</Project>
       <Name>BusinessObjects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\HomePage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-v21\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

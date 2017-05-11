@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:fillViewport="false">
+    android:fillViewport="false"
+    android:background="@drawable/background" >
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -21,6 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/Camera1"
+           android:textColor="@android:color/black"
             android:text="Type here:" />
         <EditText
             android:id="@+id/Answer1"

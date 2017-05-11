@@ -35,8 +35,8 @@ namespace InspectionApp
 		public partial class Array
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int Answers_array = 2131165184;
+			// aapt resource value: 0x7f060000
+			public const int Answers_array = 2131099648;
 			
 			static Array()
 			{
@@ -151,35 +151,11 @@ namespace InspectionApp
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f060008
-			public const int common_google_signin_btn_text_dark = 2131099656;
+			// aapt resource value: 0x7f050000
+			public const int my_red = 2131034112;
 			
-			// aapt resource value: 0x7f060000
-			public const int common_google_signin_btn_text_dark_default = 2131099648;
-			
-			// aapt resource value: 0x7f060001
-			public const int common_google_signin_btn_text_dark_disabled = 2131099649;
-			
-			// aapt resource value: 0x7f060002
-			public const int common_google_signin_btn_text_dark_focused = 2131099650;
-			
-			// aapt resource value: 0x7f060003
-			public const int common_google_signin_btn_text_dark_pressed = 2131099651;
-			
-			// aapt resource value: 0x7f060009
-			public const int common_google_signin_btn_text_light = 2131099657;
-			
-			// aapt resource value: 0x7f060004
-			public const int common_google_signin_btn_text_light_default = 2131099652;
-			
-			// aapt resource value: 0x7f060005
-			public const int common_google_signin_btn_text_light_disabled = 2131099653;
-			
-			// aapt resource value: 0x7f060006
-			public const int common_google_signin_btn_text_light_focused = 2131099654;
-			
-			// aapt resource value: 0x7f060007
-			public const int common_google_signin_btn_text_light_pressed = 2131099655;
+			// aapt resource value: 0x7f050001
+			public const int my_white = 2131034113;
 			
 			static Color()
 			{
@@ -198,9 +174,11 @@ namespace InspectionApp
 			public const int Add = 2130837504;
 			
 			// aapt resource value: 0x7f020001
+			public const int background = 2130837505;
 			public const int common_full_open_on_phone = 2130837505;
 			
 			// aapt resource value: 0x7f020002
+			public const int HomePage = 2130837506;
 			public const int common_google_signin_btn_icon_dark = 2130837506;
 			
 			// aapt resource value: 0x7f020003
@@ -279,50 +257,50 @@ namespace InspectionApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080018
-			public const int Answer1 = 2131230744;
+			// aapt resource value: 0x7f08000b
+			public const int Answer1 = 2131230731;
 			
-			// aapt resource value: 0x7f08000d
-			public const int AuditDescription = 2131230733;
-			
-			// aapt resource value: 0x7f08002f
-			public const int AuditListingView = 2131230767;
-			
-			// aapt resource value: 0x7f080016
-			public const int Camera1 = 2131230742;
-			
-			// aapt resource value: 0x7f08001a
-			public const int Camera2 = 2131230746;
+			// aapt resource value: 0x7f080000
+			public const int AuditDescription = 2131230720;
 			
 			// aapt resource value: 0x7f080020
-			public const int Camera3 = 2131230752;
+			public const int AuditListingView = 2131230752;
 			
-			// aapt resource value: 0x7f080024
-			public const int Camera4 = 2131230756;
+			// aapt resource value: 0x7f080009
+			public const int Camera1 = 2131230729;
 			
-			// aapt resource value: 0x7f08002d
-			public const int FillAudit = 2131230765;
+			// aapt resource value: 0x7f08000d
+			public const int Camera2 = 2131230733;
 			
-			// aapt resource value: 0x7f080034
-			public const int Play = 2131230772;
+			// aapt resource value: 0x7f080013
+			public const int Camera3 = 2131230739;
 			
-			// aapt resource value: 0x7f080032
-			public const int Record = 2131230770;
+			// aapt resource value: 0x7f080017
+			public const int Camera4 = 2131230743;
 			
-			// aapt resource value: 0x7f080035
-			public const int SampleVideoView = 2131230773;
+			// aapt resource value: 0x7f080021
+			public const int FillAudit = 2131230753;
+			
+			// aapt resource value: 0x7f080027
+			public const int Play = 2131230759;
+			
+			// aapt resource value: 0x7f080025
+			public const int Record = 2131230757;
 			
 			// aapt resource value: 0x7f080028
-			public const int SaveQuestion = 2131230760;
+			public const int SampleVideoView = 2131230760;
 			
-			// aapt resource value: 0x7f080033
-			public const int Stop = 2131230771;
+			// aapt resource value: 0x7f08001b
+			public const int SaveQuestion = 2131230747;
 			
-			// aapt resource value: 0x7f08002e
-			public const int ViewAudit = 2131230766;
+			// aapt resource value: 0x7f080026
+			public const int Stop = 2131230758;
 			
-			// aapt resource value: 0x7f080010
-			public const int absoluteLayout1 = 2131230736;
+			// aapt resource value: 0x7f08001f
+			public const int ViewAudit = 2131230751;
+			
+			// aapt resource value: 0x7f080003
+			public const int absoluteLayout1 = 2131230723;
 			
 			// aapt resource value: 0x7f080005
 			public const int adjust_height = 2131230725;
@@ -374,70 +352,125 @@ namespace InspectionApp
 			
 			// aapt resource value: 0x7f080007
 			public const int icon_only = 2131230727;
+			// aapt resource value: 0x7f08001e
+			public const int back = 2131230750;
 			
+			// aapt resource value: 0x7f080001
+			public const int btnView = 2131230721;
+			
+			// aapt resource value: 0x7f080022
+			public const int button1 = 2131230754;
+			
+			// aapt resource value: 0x7f080023
+			public const int button2 = 2131230755;
+			
+			// aapt resource value: 0x7f080024
+			public const int button3 = 2131230756;
 			// aapt resource value: 0x7f08002a
 			public const int imageCamera = 2131230762;
 			
 			// aapt resource value: 0x7f080017
 			public const int labelQuestion1 = 2131230743;
+			// aapt resource value: 0x7f080015
+			public const int chkAnswer3 = 2131230741;
 			
+			// aapt resource value: 0x7f080007
+			public const int eTextLocation = 2131230727;
 			// aapt resource value: 0x7f08001b
 			public const int labelQuestion2 = 2131230747;
 			
 			// aapt resource value: 0x7f080021
 			public const int labelQuestion3 = 2131230753;
+			// aapt resource value: 0x7f08000c
+			public const int fileQuestion1 = 2131230732;
 			
+			// aapt resource value: 0x7f080012
+			public const int fileQuestion2 = 2131230738;
 			// aapt resource value: 0x7f080025
 			public const int labelQuestion4 = 2131230757;
 			
+			// aapt resource value: 0x7f080016
+			public const int fileQuestion3 = 2131230742;
 			// aapt resource value: 0x7f08000c
 			public const int light = 2131230732;
 			
+			// aapt resource value: 0x7f08001a
+			public const int fileQuestion4 = 2131230746;
 			// aapt resource value: 0x7f08000f
 			public const int linearLayout1 = 2131230735;
 			
+			// aapt resource value: 0x7f08001d
+			public const int imageCamera = 2131230749;
 			// aapt resource value: 0x7f080015
 			public const int next = 2131230741;
 			
+			// aapt resource value: 0x7f08000a
+			public const int labelQuestion1 = 2131230730;
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
 			
+			// aapt resource value: 0x7f08000e
+			public const int labelQuestion2 = 2131230734;
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
+			// aapt resource value: 0x7f080014
+			public const int labelQuestion3 = 2131230740;
 			// aapt resource value: 0x7f08001e
 			public const int radio_No = 2131230750;
 			
+			// aapt resource value: 0x7f080018
+			public const int labelQuestion4 = 2131230744;
 			// aapt resource value: 0x7f08001d
 			public const int radio_Yes = 2131230749;
 			
+			// aapt resource value: 0x7f080002
+			public const int linearLayout1 = 2131230722;
 			// aapt resource value: 0x7f08001c
 			public const int rdoQuestion2 = 2131230748;
 			
+			// aapt resource value: 0x7f080008
+			public const int next = 2131230728;
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
 			
+			// aapt resource value: 0x7f080011
+			public const int radio_No = 2131230737;
 			// aapt resource value: 0x7f080026
 			public const int spinnerAnswer4 = 2131230758;
 			
+			// aapt resource value: 0x7f080010
+			public const int radio_Yes = 2131230736;
 			// aapt resource value: 0x7f080012
 			public const int spnTemplates = 2131230738;
 			
+			// aapt resource value: 0x7f08000f
+			public const int rdoQuestion2 = 2131230735;
 			// aapt resource value: 0x7f080008
 			public const int standard = 2131230728;
 			
+			// aapt resource value: 0x7f080019
+			public const int spinnerAnswer4 = 2131230745;
 			// aapt resource value: 0x7f080029
 			public const int takePicture = 2131230761;
 			
+			// aapt resource value: 0x7f080005
+			public const int spnTemplates = 2131230725;
 			// aapt resource value: 0x7f080004
 			public const int terrain = 2131230724;
 			
+			// aapt resource value: 0x7f08001c
+			public const int takePicture = 2131230748;
 			// aapt resource value: 0x7f080011
 			public const int textView1 = 2131230737;
 			
+			// aapt resource value: 0x7f080004
+			public const int textView1 = 2131230724;
 			// aapt resource value: 0x7f080013
 			public const int textView2 = 2131230739;
 			
+			// aapt resource value: 0x7f080006
+			public const int textView2 = 2131230726;
 			// aapt resource value: 0x7f080009
 			public const int wide = 2131230729;
 			
@@ -714,6 +747,25 @@ namespace InspectionApp
 			}
 			
 			private Styleable()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f070001
+			public const int MyCustomTheme = 2131165185;
+			
+			// aapt resource value: 0x7f070000
+			public const int Theme_Splash = 2131165184;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
