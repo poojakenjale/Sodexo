@@ -14,6 +14,7 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using BusinessObjects;
 
+
 namespace InspectionApp
 {
     [Activity(Label = "MapViewActivity")]
@@ -22,6 +23,7 @@ namespace InspectionApp
         List<AuditDetails> _auditDetailList;
         private Template manageTemplate = new Template();
         private GoogleMap Gmap;
+       
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -45,12 +47,16 @@ namespace InspectionApp
             foreach (AuditDetails auditDetail in _auditDetailList)
             {
                 string [] gpsCoordinates = auditDetail.GPSCoordinate.Split(',');
-                latlng = new LatLng(Convert.ToDouble(gpsCoordinates[0]), Convert.ToDouble(gpsCoordinates[1]));
-                MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle(auditDetail.Location);
-                Gmap.AddMarker(options);
+                if (gpsCoordinates.Count() > 0)
+                {
+                    latlng = new LatLng(Convert.ToDouble(gpsCoordinates[0]), Convert.ToDouble(gpsCoordinates[1]));
+                    MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle(auditDetail.Location).SetAlpha(auditDetail.Id);
+                    Gmap.AddMarker(options);
+                }            
             }
             CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 15);
             Gmap.MoveCamera(camera);
+            Gmap.MarkerClick += MapOnMarkerClick;
         }
         private void SetupMap()
         {
@@ -58,6 +64,16 @@ namespace InspectionApp
             {
                 FragmentManager.FindFragmentById<MapFragment>(Resource.Id.googlemap).GetMapAsync(this);
             }
+        }
+        private void MapOnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs markerClickEventArgs)
+        {
+            markerClickEventArgs.Handled = true;
+            Marker marker = markerClickEventArgs.Marker;
+
+            var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
+            questionAnswer.PutExtra("auditId", marker.Alpha.ToString());
+            questionAnswer.PutExtra("isNewAudit", false.ToString());
+            StartActivity(questionAnswer);           
         }
     }
 }

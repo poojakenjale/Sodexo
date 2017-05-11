@@ -100,7 +100,7 @@ namespace InspectionApp
             Question2.Text = Questions[1].QuestionDescription;
             Question3.Text = Questions[2].QuestionDescription;
             Question4.Text = Questions[3].QuestionDescription;
-            if (string.IsNullOrEmpty(isNewAudit))//view mode
+            if (!Convert.ToBoolean(isNewAudit))//view mode
             {
                 SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
 				List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(Convert.ToInt32(auditID));
