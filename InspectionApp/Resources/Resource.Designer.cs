@@ -291,47 +291,62 @@ namespace InspectionApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090018
-			public const int Answer1 = 2131296280;
+			// aapt resource value: 0x7f09001a
+			public const int Answer1 = 2131296282;
 			
 			// aapt resource value: 0x7f09000d
 			public const int AuditDescription = 2131296269;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090032
 			public const int AuditListingView = 2131296306;
+=======
+			// aapt resource value: 0x7f090031
+			public const int AuditListingView = 2131296305;
+>>>>>>> origin/master
 			
-			// aapt resource value: 0x7f090016
-			public const int Camera1 = 2131296278;
+			// aapt resource value: 0x7f090018
+			public const int Camera1 = 2131296280;
 			
-			// aapt resource value: 0x7f09001a
-			public const int Camera2 = 2131296282;
+			// aapt resource value: 0x7f09001c
+			public const int Camera2 = 2131296284;
 			
-			// aapt resource value: 0x7f090020
-			public const int Camera3 = 2131296288;
+			// aapt resource value: 0x7f090022
+			public const int Camera3 = 2131296290;
 			
-			// aapt resource value: 0x7f090024
-			public const int Camera4 = 2131296292;
+			// aapt resource value: 0x7f090026
+			public const int Camera4 = 2131296294;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090030
 			public const int FillAudit = 2131296304;
-			
-			// aapt resource value: 0x7f090037
-			public const int Play = 2131296311;
-			
-			// aapt resource value: 0x7f090035
-			public const int Record = 2131296309;
+=======
+			// aapt resource value: 0x7f09002f
+			public const int FillAudit = 2131296303;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090038
-			public const int SampleVideoView = 2131296312;
-			
-			// aapt resource value: 0x7f090028
-			public const int SaveQuestion = 2131296296;
+			public const int Play = 2131296312;
 			
 			// aapt resource value: 0x7f090036
-			public const int Stop = 2131296310;
+			public const int Record = 2131296310;
 			
+			// aapt resource value: 0x7f090039
+			public const int SampleVideoView = 2131296313;
+			
+			// aapt resource value: 0x7f09002a
+			public const int SaveQuestion = 2131296298;
+			
+			// aapt resource value: 0x7f090037
+			public const int Stop = 2131296311;
+			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090031
 			public const int ViewAudit = 2131296305;
+=======
+			// aapt resource value: 0x7f090030
+			public const int ViewAudit = 2131296304;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090010
 			public const int absoluteLayout1 = 2131296272;
@@ -345,18 +360,32 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09000a
 			public const int auto = 2131296266;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f09002e
 			public const int back = 2131296302;
+=======
+			// aapt resource value: 0x7f09002d
+			public const int back = 2131296301;
+>>>>>>> origin/master
 			
-			// aapt resource value: 0x7f090033
-			public const int btnBack = 2131296307;
+			// aapt resource value: 0x7f090016
+			public const int btnBack = 2131296278;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f09002f
 			public const int btnMap = 2131296303;
+=======
+			// aapt resource value: 0x7f090017
+			public const int btnBackToList = 2131296279;
+			
+			// aapt resource value: 0x7f09002e
+			public const int btnMap = 2131296302;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f09000e
 			public const int btnView = 2131296270;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090029
 			public const int button1 = 2131296297;
 			
@@ -365,9 +394,19 @@ namespace InspectionApp
 			
 			// aapt resource value: 0x7f09002b
 			public const int button3 = 2131296299;
+=======
+			// aapt resource value: 0x7f090032
+			public const int button1 = 2131296306;
 			
-			// aapt resource value: 0x7f090022
-			public const int chkAnswer3 = 2131296290;
+			// aapt resource value: 0x7f090033
+			public const int button2 = 2131296307;
+			
+			// aapt resource value: 0x7f090034
+			public const int button3 = 2131296308;
+>>>>>>> origin/master
+			
+			// aapt resource value: 0x7f090024
+			public const int chkAnswer3 = 2131296292;
 			
 			// aapt resource value: 0x7f09000b
 			public const int dark = 2131296267;
@@ -375,20 +414,20 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090014
 			public const int eTextLocation = 2131296276;
 			
-			// aapt resource value: 0x7f090019
-			public const int fileQuestion1 = 2131296281;
+			// aapt resource value: 0x7f09001b
+			public const int fileQuestion1 = 2131296283;
 			
-			// aapt resource value: 0x7f09001f
-			public const int fileQuestion2 = 2131296287;
+			// aapt resource value: 0x7f090021
+			public const int fileQuestion2 = 2131296289;
 			
-			// aapt resource value: 0x7f090023
-			public const int fileQuestion3 = 2131296291;
+			// aapt resource value: 0x7f090025
+			public const int fileQuestion3 = 2131296293;
 			
-			// aapt resource value: 0x7f090027
-			public const int fileQuestion4 = 2131296295;
+			// aapt resource value: 0x7f090029
+			public const int fileQuestion4 = 2131296297;
 			
-			// aapt resource value: 0x7f090034
-			public const int googlemap = 2131296308;
+			// aapt resource value: 0x7f090035
+			public const int googlemap = 2131296309;
 			
 			// aapt resource value: 0x7f090000
 			public const int hybrid = 2131296256;
@@ -396,20 +435,25 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090007
 			public const int icon_only = 2131296263;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f09002d
 			public const int imageCamera = 2131296301;
+=======
+			// aapt resource value: 0x7f09002c
+			public const int imageCamera = 2131296300;
+>>>>>>> origin/master
 			
-			// aapt resource value: 0x7f090017
-			public const int labelQuestion1 = 2131296279;
+			// aapt resource value: 0x7f090019
+			public const int labelQuestion1 = 2131296281;
 			
-			// aapt resource value: 0x7f09001b
-			public const int labelQuestion2 = 2131296283;
+			// aapt resource value: 0x7f09001d
+			public const int labelQuestion2 = 2131296285;
 			
-			// aapt resource value: 0x7f090021
-			public const int labelQuestion3 = 2131296289;
+			// aapt resource value: 0x7f090023
+			public const int labelQuestion3 = 2131296291;
 			
-			// aapt resource value: 0x7f090025
-			public const int labelQuestion4 = 2131296293;
+			// aapt resource value: 0x7f090027
+			public const int labelQuestion4 = 2131296295;
 			
 			// aapt resource value: 0x7f09000c
 			public const int light = 2131296268;
@@ -426,20 +470,20 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090002
 			public const int normal = 2131296258;
 			
+			// aapt resource value: 0x7f090020
+			public const int radio_No = 2131296288;
+			
+			// aapt resource value: 0x7f09001f
+			public const int radio_Yes = 2131296287;
+			
 			// aapt resource value: 0x7f09001e
-			public const int radio_No = 2131296286;
-			
-			// aapt resource value: 0x7f09001d
-			public const int radio_Yes = 2131296285;
-			
-			// aapt resource value: 0x7f09001c
-			public const int rdoQuestion2 = 2131296284;
+			public const int rdoQuestion2 = 2131296286;
 			
 			// aapt resource value: 0x7f090003
 			public const int satellite = 2131296259;
 			
-			// aapt resource value: 0x7f090026
-			public const int spinnerAnswer4 = 2131296294;
+			// aapt resource value: 0x7f090028
+			public const int spinnerAnswer4 = 2131296296;
 			
 			// aapt resource value: 0x7f090012
 			public const int spnTemplates = 2131296274;
@@ -447,8 +491,13 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090008
 			public const int standard = 2131296264;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f09002c
 			public const int takePicture = 2131296300;
+=======
+			// aapt resource value: 0x7f09002b
+			public const int takePicture = 2131296299;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090004
 			public const int terrain = 2131296260;
