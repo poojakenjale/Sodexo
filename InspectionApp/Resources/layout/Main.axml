@@ -40,14 +40,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@id/ViewAudit" />
-    <ImageButton xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/FillAudit"
-        android:src="@drawable/Add"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/AuditListingView"
-        android:layout_alignParentRight="true"
-        tools:visibility="visible" />
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_height="wrap_content"
