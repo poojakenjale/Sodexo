@@ -21,41 +21,70 @@
     <TextView
         android:id="@+id/ViewAudit"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:background="#7D090A"
         android:textColor="#FFFFFF"
-        android:text="Audit List" />
+        android:text="AUDITS"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:shadowColor="#ff342d2d"
+        android:drawablePadding="10dp"
+        android:fitsSystemWindows="true" />
     <ListView
         android:id="@+id/AuditListingView"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
+<<<<<<< HEAD
         android:layout_below="@id/ViewAudit" />   
+=======
+        android:layout_below="@id/ViewAudit" />
+    <ImageButton
+        android:id="@+id/FillAudit"
+        android:src="@drawable/Add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/AuditListingView"
+        android:layout_alignParentRight="true" />
+>>>>>>> 8a94ec8... * AuditDetailsActivity.cs: UI Updates in progress
     <LinearLayout
-        android:layout_width="fill_parent"
         android:id="@+id/linearLayout1"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/FillAudit">
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:layout_below="@id/FillAudit"
+        android:scrollIndicators="none"
+        android:layoutMode="opticalBounds"
+        android:baselineAligned="true"
+        android:measureWithLargestChild="true"
+        android:splitMotionEvents="true"
+        android:contextClickable="true">
         <Button
-            android:text="Home"
+            android:text="HOME"
             android:id="@+id/button1"
             android:background="#7D090A"
             android:layout_marginLeft="0dp"
-            android:layout_width="80dp"
-            android:layout_height="20dp" />
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:textColor="#ffe0dbdb" />
         <Button
             android:text="Search"
             android:id="@+id/button2"
             android:background="#7D090A"
-            android:layout_width="80dp"
-            android:layout_height="20dp" />
+            android:layout_width="135dp"
+            android:layout_height="40dp"
+            android:textColor="#ffe0dbdb" />
         <Button
             android:text="Setting"
             android:id="@+id/button3"
             android:background="#7D090A"
             android:layout_marginRight="0dp"
-            android:layout_width="80dp"
-            android:layout_height="20dp" />
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:textColor="#ffe0dbdb" />
     </LinearLayout>
 </RelativeLayout>
