@@ -51,15 +51,6 @@ namespace InspectionApp
             }
             CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 15);
             Gmap.MoveCamera(camera);
-
-            //LatLng latlng = new LatLng(Convert.ToDouble(13.0291), Convert.ToDouble(80.2083));
-            //LatLng latlng1 = new LatLng(Convert.ToDouble(13.0299), Convert.ToDouble(80.2097));
-            //CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 15);
-            //Gmap.MoveCamera(camera);
-            //MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle("Chennai");
-            //MarkerOptions options1 = new MarkerOptions().SetPosition(latlng1).SetTitle("madras");
-            //Gmap.AddMarker(options);
-            //Gmap.AddMarker(options1);
         }
         private void SetupMap()
         {

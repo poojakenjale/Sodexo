@@ -39,8 +39,8 @@ namespace InspectionApp
 
 			// Set our view from the "main" layout resource
             SetContentView(Resource.Layout.AuditQuestionAnswers);
-            auditID = Intent.GetStringExtra("auditId") ?? "Data not available";
-            isNewAudit = Intent.GetStringExtra("isNewAudit") ?? "Data not available";
+            auditID = Intent.GetStringExtra("auditId");
+            isNewAudit = Intent.GetStringExtra("isNewAudit");
             getDataForImageFile(Intent);
 
 			TextView Question1 = FindViewById<TextView>(Resource.Id.labelQuestion1);

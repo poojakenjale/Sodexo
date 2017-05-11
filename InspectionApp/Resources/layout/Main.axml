@@ -31,14 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/ViewAudit" />
-    <ImageButton
-        android:id="@+id/FillAudit"
-        android:src="@drawable/Add"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/AuditListingView" />
+        android:layout_below="@id/ViewAudit" />   
     <LinearLayout
         android:layout_width="fill_parent"
         android:id="@+id/linearLayout1"
