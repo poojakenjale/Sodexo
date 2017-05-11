@@ -7,8 +7,10 @@
         android:layout_width="100dip"
         android:layout_height="40dip"
         android:layout_marginTop="10dip"
-        android:layout_alignParentLeft="true"
-        android:id="@+id/btnMap" />
+        android:id="@+id/btnMap"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true" />
     <ImageButton
         android:id="@+id/FillAudit"
         android:layout_width="50dip"
@@ -35,24 +37,21 @@
         android:id="@+id/AuditListingView"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-<<<<<<< HEAD
-        android:layout_below="@id/ViewAudit" />   
-=======
         android:layout_below="@id/ViewAudit" />
-    <ImageButton
+    <ImageButton xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/FillAudit"
         android:src="@drawable/Add"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@id/AuditListingView"
-        android:layout_alignParentRight="true" />
->>>>>>> 8a94ec8... * AuditDetailsActivity.cs: UI Updates in progress
+        android:layout_alignParentRight="true"
+        tools:visibility="visible" />
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal"
         android:showDividers="middle"
@@ -62,7 +61,8 @@
         android:baselineAligned="true"
         android:measureWithLargestChild="true"
         android:splitMotionEvents="true"
-        android:contextClickable="true">
+        android:contextClickable="true"
+        android:layout_alignParentBottom="true">
         <Button
             android:text="HOME"
             android:id="@+id/button1"

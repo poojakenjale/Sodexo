@@ -297,8 +297,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09000d
 			public const int AuditDescription = 2131296269;
 			
-			// aapt resource value: 0x7f09002f
-			public const int AuditListingView = 2131296303;
+			// aapt resource value: 0x7f090032
+			public const int AuditListingView = 2131296306;
 			
 			// aapt resource value: 0x7f090016
 			public const int Camera1 = 2131296278;
@@ -312,8 +312,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090024
 			public const int Camera4 = 2131296292;
 			
-			// aapt resource value: 0x7f09002d
-			public const int FillAudit = 2131296301;
+			// aapt resource value: 0x7f090030
+			public const int FillAudit = 2131296304;
 			
 			// aapt resource value: 0x7f090037
 			public const int Play = 2131296311;
@@ -330,8 +330,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090036
 			public const int Stop = 2131296310;
 			
-			// aapt resource value: 0x7f09002e
-			public const int ViewAudit = 2131296302;
+			// aapt resource value: 0x7f090031
+			public const int ViewAudit = 2131296305;
 			
 			// aapt resource value: 0x7f090010
 			public const int absoluteLayout1 = 2131296272;
@@ -345,26 +345,26 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09000a
 			public const int auto = 2131296266;
 			
-			// aapt resource value: 0x7f09002b
-			public const int back = 2131296299;
+			// aapt resource value: 0x7f09002e
+			public const int back = 2131296302;
 			
 			// aapt resource value: 0x7f090033
 			public const int btnBack = 2131296307;
 			
-			// aapt resource value: 0x7f09002c
-			public const int btnMap = 2131296300;
+			// aapt resource value: 0x7f09002f
+			public const int btnMap = 2131296303;
 			
 			// aapt resource value: 0x7f09000e
 			public const int btnView = 2131296270;
 			
-			// aapt resource value: 0x7f090030
-			public const int button1 = 2131296304;
+			// aapt resource value: 0x7f090029
+			public const int button1 = 2131296297;
 			
-			// aapt resource value: 0x7f090031
-			public const int button2 = 2131296305;
+			// aapt resource value: 0x7f09002a
+			public const int button2 = 2131296298;
 			
-			// aapt resource value: 0x7f090032
-			public const int button3 = 2131296306;
+			// aapt resource value: 0x7f09002b
+			public const int button3 = 2131296299;
 			
 			// aapt resource value: 0x7f090022
 			public const int chkAnswer3 = 2131296290;
@@ -396,8 +396,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090007
 			public const int icon_only = 2131296263;
 			
-			// aapt resource value: 0x7f09002a
-			public const int imageCamera = 2131296298;
+			// aapt resource value: 0x7f09002d
+			public const int imageCamera = 2131296301;
 			
 			// aapt resource value: 0x7f090017
 			public const int labelQuestion1 = 2131296279;
@@ -447,8 +447,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f090008
 			public const int standard = 2131296264;
 			
-			// aapt resource value: 0x7f090029
-			public const int takePicture = 2131296297;
+			// aapt resource value: 0x7f09002c
+			public const int takePicture = 2131296300;
 			
 			// aapt resource value: 0x7f090004
 			public const int terrain = 2131296260;
@@ -626,7 +626,8 @@ namespace InspectionApp
 		public partial class Styleable
 		{
 			
-			public static int[] LoadingImageView = new int[] {
+			public static int[] LoadingImageView = new int[]
+			{
 					2130771991,
 					2130771992,
 					2130771993};
@@ -640,7 +641,8 @@ namespace InspectionApp
 			// aapt resource value: 0
 			public const int LoadingImageView_imageAspectRatioAdjust = 0;
 			
-			public static int[] MapAttrs = new int[] {
+			public static int[] MapAttrs = new int[]
+			{
 					2130771968,
 					2130771969,
 					2130771970,
@@ -734,7 +736,8 @@ namespace InspectionApp
 			// aapt resource value: 14
 			public const int MapAttrs_zOrderOnTop = 14;
 			
-			public static int[] SignInButton = new int[] {
+			public static int[] SignInButton = new int[]
+			{
 					2130771994,
 					2130771995,
 					2130771996};
