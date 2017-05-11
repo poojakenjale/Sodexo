@@ -6,8 +6,9 @@ using Android.Content;
 using BusinessObjects;
 using System.Collections.Generic;
 using System;
+using Android.Gms.Maps;
 
-using Android.Database;
+
 
 namespace InspectionApp
 {
@@ -15,25 +16,31 @@ namespace InspectionApp
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
+        private GoogleMap Gmap;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             this.SetContentView(Resource.Layout.Main);
-            ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);       
+            ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
+            Button btnMap = FindViewById<Button>(Resource.Id.btnMap);
             FillAudit.Click += FillAudit_Click;
+            btnMap.Click += BtnMap_Click;
 
             manageTemplate.SetContext(this);
             List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
-            //if (auditTest.Count == 0)
-            //{
-            //    manageTemplate.SaveDefaultAudit();
-            //}
-            var auditDetailsAdapter = new AuditDetailsAdapter(this);
-           auditListingView.Adapter = auditDetailsAdapter;
 
+            var auditDetailsAdapter = new AuditDetailsAdapter(this);
+            auditListingView.Adapter = auditDetailsAdapter;
+
+        }
+
+        private void BtnMap_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(MapViewActivity));
         }
 
         private void FillAudit_Click(object sender, System.EventArgs e)

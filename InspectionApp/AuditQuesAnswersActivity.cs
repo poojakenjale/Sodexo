@@ -29,7 +29,8 @@ namespace InspectionApp
 		string image2 = string.Empty;
 		string image3 = string.Empty;
 		string image4 = string.Empty;
-        int auditID = 0;
+        string auditID = string.Empty;
+        string isNewAudit = string.Empty;
 
         private Template manageTemplate = new Template();
         protected override void OnCreate(Bundle bundle)
@@ -38,8 +39,9 @@ namespace InspectionApp
 
 			// Set our view from the "main" layout resource
             SetContentView(Resource.Layout.AuditQuestionAnswers);
-            auditID = Intent.GetIntExtra("auditId",0);
-			getDataForImageFile(Intent);
+            auditID = Intent.GetStringExtra("auditId") ?? "Data not available";
+            isNewAudit = Intent.GetStringExtra("isNewAudit") ?? "Data not available";
+            getDataForImageFile(Intent);
 
 			TextView Question1 = FindViewById<TextView>(Resource.Id.labelQuestion1);
             TextView Question2 = FindViewById<TextView>(Resource.Id.labelQuestion2);
@@ -98,10 +100,10 @@ namespace InspectionApp
             Question2.Text = Questions[1].QuestionDescription;
             Question3.Text = Questions[2].QuestionDescription;
             Question4.Text = Questions[3].QuestionDescription;
-            if (auditID == 1)
+            if (string.IsNullOrEmpty(isNewAudit))//view mode
             {
                 SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
-				List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(1);
+				List<AuditAnswers> auditAnswers = manageTemplate.GetAuditAnswersByID(Convert.ToInt32(auditID));
 				if (auditAnswers.Count > 0)
 				{
 					Answer1.Text = auditAnswers[0].Answer;
@@ -198,28 +200,28 @@ namespace InspectionApp
 
             List<AuditAnswers> userAnswers = new List<AuditAnswers>();
             AuditAnswers answer1 = new AuditAnswers();
-            answer1.AuditId = auditID;
+            answer1.AuditId = Convert.ToInt32(auditID);
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
             answer1.ImagePath = "";// App._dir.ToString() + " " + fileQuestion1.Text;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
-            answer2.AuditId = auditID;
+            answer2.AuditId = Convert.ToInt32(auditID);
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
 			answer2.ImagePath = "";// App._dir.ToString() + " " + fileQuestion2.Text;
             userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
-            answer3.AuditId = auditID;
+            answer3.AuditId = Convert.ToInt32(auditID);
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
 			answer3.ImagePath = "";// App._dir.ToString() + " " + fileQuestion3.Text;
             userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
-            answer4.AuditId = auditID;
+            answer4.AuditId = Convert.ToInt32(auditID);
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
 			answer4.ImagePath = "";// App._dir.ToString() + " " + fileQuestion4.Text;

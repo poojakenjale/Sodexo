@@ -2,6 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <Button
+        android:text="View Map"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_marginTop="10dip"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/btnMap" />
     <ImageButton
         android:id="@+id/FillAudit"
         android:layout_width="50dip"

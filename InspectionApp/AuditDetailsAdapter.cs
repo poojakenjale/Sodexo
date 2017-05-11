@@ -78,10 +78,8 @@ namespace InspectionApp
         void btnOneClick(int id)
         {
             var activity2 = new Intent(_activity, typeof(AuditQuesAnswersActivity));
-            activity2.PutExtra("auditId", 1);
+            activity2.PutExtra("auditId", id.ToString());
             _activity.StartActivity(activity2);
-
-
         }
     }
 }

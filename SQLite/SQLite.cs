@@ -1381,6 +1381,7 @@ namespace SQLite
         /// </returns>
         public int Insert(object obj, string extra, Type objType)
         {
+            var id = 0;
             if (obj == null || objType == null)
             {
                 return 0;
@@ -1456,14 +1457,14 @@ namespace SQLite
 
                 if (map.HasAutoIncPK)
                 {
-                    var id = SQLite3.LastInsertRowid(Handle);
+                    id = Convert.ToInt32(SQLite3.LastInsertRowid(Handle));
                     map.SetAutoIncPK(obj, id);
                 }
             }
             if (count > 0)
                 OnTableChanged(map, NotifyTableChangedAction.Insert);
 
-            return count;
+            return id;
         }
 
         /// <summary>

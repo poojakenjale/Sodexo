@@ -61,7 +61,8 @@ namespace InspectionApp
 
             int Id = manageTemplate.SaveAudit(auditDetails);
             var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
-            questionAnswer.PutExtra("auditID", Id);
+            questionAnswer.PutExtra("auditId", Id.ToString());
+            questionAnswer.PutExtra("isNewAudit", true.ToString());
             StartActivity(questionAnswer);            
         }
         private void InitializeLocationManager()
@@ -108,7 +109,7 @@ namespace InspectionApp
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
-            throw new NotImplementedException();
+            
         }
         protected override void OnResume()
         {

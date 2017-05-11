@@ -5,17 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C651B383-BCEA-4F31-BF49-E1BDE23259F9}</ProjectGuid>
+    <ProjectGuid>{F787F5CD-7A1F-4378-B0F0-2B295C09075B}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLayer</RootNamespace>
-    <AssemblyName>BusinessLayer</AssemblyName>
+    <RootNamespace>SQLite</RootNamespace>
+    <AssemblyName>SQLite</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Template.cs" />
+    <Compile Include="SQLite.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,16 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessObjects\BusinessObjects.csproj">
-      <Project>{245d7880-6527-4f7a-a37f-8ced5a027d58}</Project>
-      <Name>BusinessObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{3c3dbe77-e255-4602-9084-f2310b8c8bab}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
