@@ -3,18 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InspectionApp", "InspectionApp\InspectionApp.csproj", "{C92B3C7B-71BB-408B-AB76-F3AEB8EC4206}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite", "SQLite\SQLite.csproj", "{F787F5CD-7A1F-4378-B0F0-2B295C09075B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{245D7880-6527-4F7A-A37F-8CED5A027D58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{3C3DBE77-E255-4602-9084-F2310B8C8BAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{C651B383-BCEA-4F31-BF49-E1BDE23259F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{245D7880-6527-4F7A-A37F-8CED5A027D58}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C651B383-BCEA-4F31-BF49-E1BDE23259F9} = {C651B383-BCEA-4F31-BF49-E1BDE23259F9}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite", "SQLite\SQLite.csproj", "{F787F5CD-7A1F-4378-B0F0-2B295C09075B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InspectionApp", "InspectionApp\InspectionApp.csproj", "{C92B3C7B-71BB-408B-AB76-F3AEB8EC4206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

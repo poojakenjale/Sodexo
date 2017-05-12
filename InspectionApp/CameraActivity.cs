@@ -14,7 +14,7 @@ using BusinessObjects;
 
 namespace InspectionApp
 {
-    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
     public class CameraActivity : Activity
 	{
 		ImageView _imageCamera;
