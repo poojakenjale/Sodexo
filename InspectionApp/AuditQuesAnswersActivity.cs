@@ -36,6 +36,7 @@ namespace InspectionApp
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            
 
 			// Set our view from the "main" layout resource
             SetContentView(Resource.Layout.AuditQuestionAnswers);
@@ -145,9 +146,19 @@ namespace InspectionApp
 
 				}
 				else
-				{
-					// Get images from gallery
-					if (image1 != string.Empty)
+                {   //Recover instance state
+                    if (bundle != null)
+                    {
+                        Answer1.Text = bundle.GetString("Answer1",string.Empty);
+                        int selectedRadioButtonId = bundle.GetInt("radioGroupId", 0);
+                        RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+                        selectedradioButton.Checked = true;
+                        sp.SetSelection(Convert.ToInt32(bundle.GetLong("spinnerAnswer4")));
+                        checkbox.Checked = bundle.GetBoolean("chkAnswer3");
+                    }
+
+                    // Get images from gallery
+                    if (image1 != string.Empty)
 						ViewImage(fileQuestion1, image1, "Question1");
 					if (image2 != string.Empty)
 						ViewImage(fileQuestion2, image2, "Question2");
@@ -181,6 +192,23 @@ namespace InspectionApp
             //    pushDataForImageFile(intentVideo);
             //    StartActivity(intentVideo);
             //};
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            EditText Answer1 = FindViewById<EditText>(Resource.Id.Answer1);
+            RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.rdoQuestion2);
+            //RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
+            var sp = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
+            CheckBox checkbox = FindViewById<CheckBox>(Resource.Id.chkAnswer3);
+
+            outState.PutString("Answer1", Answer1.Text);
+            outState.PutInt("radioGroupId", radioGroup.CheckedRadioButtonId);
+            outState.PutLong("spinnerAnswer4", sp.SelectedItemPosition);
+            outState.PutBoolean("chkAnswer3", checkbox.Checked);
+
+            // always call the base implementation
+            base.OnSaveInstanceState(outState);
         }
 
         private void BackToList_Click(object sender, EventArgs e)
