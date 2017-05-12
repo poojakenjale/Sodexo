@@ -13,7 +13,7 @@ using Android.Media;
 
 namespace InspectionApp
 {
-    [Activity(Label = "Inspection", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class VideoActivity : Activity
 	{
 		MediaRecorder recorder;

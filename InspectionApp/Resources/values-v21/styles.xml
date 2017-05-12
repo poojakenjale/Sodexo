@@ -7,6 +7,6 @@
         <!-- Override the color of UI controls -->
         <!--<item name="android:colorAccent">@color/my_purple</item>-->
         <!-- Override the color of Text -->
-        <item name="android:textColorPrimary">@color/my_white</item>
+        <!--<item name="android:textColorPrimary">@color/my_white</item>-->
     </style>
 </resources>

@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class AuditDetailsActivity : Activity,ILocationListener
     {
         List<AuditTemplate> templateList = null;
