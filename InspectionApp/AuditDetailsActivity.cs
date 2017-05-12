@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class AuditDetailsActivity : Activity,ILocationListener
     {
         List<AuditTemplate> templateList = null;
@@ -62,7 +62,7 @@ namespace InspectionApp
             int Id = manageTemplate.SaveAudit(auditDetails);
             var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
             questionAnswer.PutExtra("auditId", Id.ToString());
-            questionAnswer.PutExtra("isNewAudit", true.ToString());
+            //questionAnswer.PutExtra("isNewAudit", true.ToString());
             StartActivity(questionAnswer);            
         }
         private void InitializeLocationManager()

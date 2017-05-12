@@ -14,7 +14,7 @@ using BusinessObjects;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class CameraActivity : Activity
 	{
 		ImageView _imageCamera;
@@ -52,8 +52,8 @@ namespace InspectionApp
 			else
 			{
 				string fileName = (Question == "Question1") ? image1 : (Question == "Question2") ? image2 : (Question == "Question3") ? image3 : image4;
-				App._file = new File(App._dir, fileName);
-				_imageCamera.SetImageURI(Android.Net.Uri.FromFile(App._file));
+				AppFile._file = new File(AppFile._dir, fileName);
+				_imageCamera.SetImageURI(Android.Net.Uri.FromFile(AppFile._file));
 				takePicture.Visibility = Android.Views.ViewStates.Gone;
 
 				back.Click += delegate {
@@ -66,12 +66,10 @@ namespace InspectionApp
 
 		private void CreateDirectoryForPictures()
 		{
-			App._dir = new File(
-				Android.OS.Environment.GetExternalStoragePublicDirectory(
-					Android.OS.Environment.DirectoryPictures), "InspectionApp");
-			if (!App._dir.Exists())
+			AppFile._dir = new File(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures), "Inspection");
+			if (!AppFile._dir.Exists())
 			{
-				App._dir.Mkdirs();
+				AppFile._dir.Mkdirs();
 			}
 		}
 
@@ -86,8 +84,8 @@ namespace InspectionApp
 		private void TakeAPicture(object sender, EventArgs eventArgs)
 		{
 			Intent intent = new Intent(MediaStore.ActionImageCapture);
-			App._file = new File(App._dir, String.Format("myPhoto_{0}_{1}.jpg", Guid.NewGuid(), Question));
-			string imageFileName = Android.Net.Uri.FromFile(App._file).LastPathSegment;
+			AppFile._file = new File(AppFile._dir, String.Format("myPhoto_{0}_{1}.jpg", Guid.NewGuid(), Question));
+			string imageFileName = Android.Net.Uri.FromFile(AppFile._file).LastPathSegment;
 			switch (Question)
 			{
 				case "Question1":
@@ -103,7 +101,7 @@ namespace InspectionApp
 					image4 = imageFileName;
 					break;
 			}
-			intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(App._file));
+			intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(AppFile._file));
 			pushDataForImageFile(intent);
 			StartActivityForResult(intent, 0);
 		}
@@ -114,7 +112,7 @@ namespace InspectionApp
 
 			// Make it available in the gallery
 			Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-			Android.Net.Uri contentUri = Android.Net.Uri.FromFile(App._file);
+			Android.Net.Uri contentUri = Android.Net.Uri.FromFile(AppFile._file);
 			mediaScanIntent.SetData(contentUri);
 			SendBroadcast(mediaScanIntent);
 
@@ -124,11 +122,11 @@ namespace InspectionApp
 
 			int height = Resources.DisplayMetrics.HeightPixels;
 			int width = _imageCamera.Height;
-			App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
-			if (App.bitmap != null)
+			AppFile.bitmap = AppFile._file.Path.LoadAndResizeBitmap(width, height);
+			if (AppFile.bitmap != null)
 			{
-				_imageCamera.SetImageBitmap(App.bitmap);
-				App.bitmap = null;
+				_imageCamera.SetImageBitmap(AppFile.bitmap);
+				AppFile.bitmap = null;
 			}
 
 			back.Click += delegate {

@@ -18,7 +18,7 @@ using System.IO;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@android:style/Theme.Material.Light", Icon = "@drawable/icon")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class AuditQuesAnswersActivity : Activity
     {
 		TextView fileQuestion1;
@@ -102,7 +102,7 @@ namespace InspectionApp
             Question2.Text = Questions[1].QuestionDescription;
             Question3.Text = Questions[2].QuestionDescription;
             Question4.Text = Questions[3].QuestionDescription;
-            if (!Convert.ToBoolean(isNewAudit))//view mode
+            if (!string.IsNullOrEmpty(isNewAudit))//view mode
             {
                 SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
                 BackToList.Click += BackToList_Click;
@@ -241,28 +241,28 @@ namespace InspectionApp
             answer1.AuditId = Convert.ToInt32(auditID);
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
-            answer1.ImagePath = "";// App._dir.ToString() + " " + fileQuestion1.Text;
+            answer1.ImagePath =  AppFile._dir.ToString() + " " + fileQuestion1.Text;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
             answer2.AuditId = Convert.ToInt32(auditID);
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
-			answer2.ImagePath = "";// App._dir.ToString() + " " + fileQuestion2.Text;
+			answer2.ImagePath = AppFile._dir.ToString() + " " + fileQuestion2.Text;
             userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
             answer3.AuditId = Convert.ToInt32(auditID);
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
-			answer3.ImagePath = "";// App._dir.ToString() + " " + fileQuestion3.Text;
+			answer3.ImagePath = AppFile._dir.ToString() + " " + fileQuestion3.Text;
             userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
             answer4.AuditId = Convert.ToInt32(auditID);
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
-			answer4.ImagePath = "";// App._dir.ToString() + " " + fileQuestion4.Text;
+			answer4.ImagePath = AppFile._dir.ToString() + " " + fileQuestion4.Text;
             userAnswers.Add(answer4);
 
 

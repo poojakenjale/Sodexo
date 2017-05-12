@@ -79,6 +79,7 @@ namespace InspectionApp
         {
             var activity2 = new Intent(_activity, typeof(AuditQuesAnswersActivity));
             activity2.PutExtra("auditId", id.ToString());
+            activity2.PutExtra("isNewAudit", false.ToString());
             _activity.StartActivity(activity2);
         }
     }
