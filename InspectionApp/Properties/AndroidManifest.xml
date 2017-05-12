@@ -23,7 +23,7 @@
 	<!-- Notice here that we have the package name of our application as a prefix on the permissions. -->
 	<uses-permission android:name="com.inspectionApp.inspectionApp.permission.MAPS_RECEIVE" />
 	<uses-permission android:name="com.inspectionApp.inspectionApp.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
-	<application android:label="Inspection" android:icon="@drawable/Upload">
+	<application android:label="Inspection" android:theme="@android:style/Theme.Material.Light" Theme="@style/MyCustomTheme" android:icon="@drawable/Upload">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA-o-0L4gtldBkFCIU6Vqn_lm83sCafssM" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>

@@ -17,7 +17,7 @@ using BusinessObjects;
 
 namespace InspectionApp
 {
-    [Activity(Label = "MapViewActivity")]
+    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class MapViewActivity : Activity, IOnMapReadyCallback
     {
         List<AuditDetails> _auditDetailList;
