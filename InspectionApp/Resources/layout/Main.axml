@@ -26,18 +26,15 @@
         android:layout_height="30dp"
         android:background="#7D090A"
         android:textColor="#FFFFFF"
-
         android:text="AUDITS"
         android:gravity="center"
         android:textAllCaps="true"
         android:textStyle="bold"
         android:shadowColor="#ff342d2d"
         android:drawablePadding="10dp"
-        android:fitsSystemWindows="true" />
-
-        android:text="Audit List" 
-        android:layout_below="@id/FillAudit"/>
-
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/FillAudit" />
     <ListView
         android:id="@+id/AuditListingView"
         android:minHeight="25px"
@@ -45,10 +42,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@id/ViewAudit" />
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_height="wrap_content"
-
         android:layout_width="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal"
@@ -61,9 +58,6 @@
         android:splitMotionEvents="true"
         android:contextClickable="true"
         android:layout_alignParentBottom="true">
-
-        android:layout_below="@id/AuditListingView">
-
         <Button
             android:text="HOME"
             android:id="@+id/button1"

@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
     <Compile Include="AuditAnswers.cs" />
     <Compile Include="AuditDetails.cs" />
     <Compile Include="AuditTemplate.cs" />

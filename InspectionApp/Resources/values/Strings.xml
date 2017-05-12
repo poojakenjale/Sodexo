@@ -5,6 +5,7 @@
   <string name="openCamera">Open Camera</string>
   <string name="takePicture">Take Picture</string>
   <string name="back">Back</string>
+  <string name="LoggedInUserName">Kenjale Pooja R</string>
   <string-array name="Answers_array">
     <item>Always</item>
     <item>Sometimes</item>

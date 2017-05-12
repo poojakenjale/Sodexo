@@ -53,24 +53,29 @@ namespace InspectionApp
             var view = convertView ?? _activity.LayoutInflater.Inflate(
                 Resource.Layout.AuditDetailItem, parent, false);
             var auditDescription = view.FindViewById<TextView>(Resource.Id.AuditDescription);
-            var btnViewAudit = view.FindViewById<Button>(Resource.Id.btnView);
+            var auditCreatedBy = view.FindViewById<TextView>(Resource.Id.CreatedBy);
+            var auditCreatedOn = view.FindViewById<TextView>(Resource.Id.CreatedOn);
+            //var btnViewAudit = view.FindViewById<Button>(Resource.Id.btnView);
             auditDescription.Text = string.Concat(_auditDetailList[position].Location, "-", _auditDetailList[position].UserId);
 
 
             if (_auditDetailList[position].Id == 0)
             {
                 auditDescription = view.FindViewById<TextView>(Resource.Id.AuditDescription);
-                btnViewAudit = view.FindViewById<Button>(Resource.Id.btnView);
+                //btnViewAudit = view.FindViewById<Button>(Resource.Id.btnView);
                 auditDescription.Text = "No audits are created yet";
-                btnViewAudit.Visibility = ViewStates.Gone;
+                //btnViewAudit.Visibility = ViewStates.Gone;
             }
             else
             {
-                auditDescription.Text = string.Concat(_auditDetailList[position].Location, "-", _auditDetailList[position].UserId);
-                btnViewAudit.Tag = _auditDetailList[position].Id;
-                btnViewAudit.Click += delegate {
-                    btnOneClick((int)btnViewAudit.Tag);
-                };
+                //auditDescription.Text = string.Concat(_auditDetailList[position].Location, "-", _auditDetailList[position].UserId);
+                auditDescription.Text = string.Concat("Food Audit", "-", _auditDetailList[position].Location);
+                auditCreatedBy.Text =_activity.GetString(Resource.String.LoggedInUserName);
+                auditCreatedOn.Text = DateTime.Today.ToShortDateString();
+                //btnViewAudit.Tag = _auditDetailList[position].Id;
+                //btnViewAudit.Click += delegate {
+                //    btnOneClick((int)btnViewAudit.Tag);
+                //};
             }
             return view;
         }
