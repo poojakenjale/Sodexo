@@ -25,7 +25,7 @@ namespace BusinessLayer
             {
                 if (dbUpdates.GetTemplateCount() == 0)
                 {
-                    foodAudit.Name = "Food Audit";
+                    foodAudit.Name = "Appearance Care";
                     foodAudit.Type = "Food";
                     int id = dbUpdates.AddTemplate(foodAudit);
 
