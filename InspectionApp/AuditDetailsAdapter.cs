@@ -15,6 +15,7 @@ namespace InspectionApp
     public class AuditDetailsAdapter :BaseAdapter
     {
         List<AuditDetails> _auditDetailList;
+        List<AuditTemplate> _auditTemplateList;
         Activity _activity;
         private Template manageTemplate = new Template();
 
@@ -28,7 +29,7 @@ namespace InspectionApp
         void FillAuditList()
         {
             _auditDetailList = manageTemplate.GetAllAudit();
-           
+            _auditTemplateList = manageTemplate.GetTemplates();
         }
 
         public override int Count
@@ -69,7 +70,8 @@ namespace InspectionApp
             else
             {
                 //auditDescription.Text = string.Concat(_auditDetailList[position].Location, "-", _auditDetailList[position].UserId);
-                auditDescription.Text = string.Concat("Food Audit", "-", _auditDetailList[position].Location);
+               var templatedetails= _auditTemplateList.Find(t => t.Id == _auditDetailList[position].TemplateId);
+                auditDescription.Text = string.Concat(templatedetails.Name, "-", _auditDetailList[position].Location);
                 auditCreatedBy.Text =_activity.GetString(Resource.String.LoggedInUserName);
                 auditCreatedOn.Text = DateTime.Today.ToShortDateString();
                 //btnViewAudit.Tag = _auditDetailList[position].Id;

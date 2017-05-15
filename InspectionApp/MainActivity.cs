@@ -14,12 +14,33 @@ namespace InspectionApp
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
+
+        private Boolean canAccessLocation()
+        {
+            return (hasPermission(Manifest.Permission.AccessFineLocation));
+        }
+
+        private Boolean canAccessCamera()
+        {
+            return (hasPermission(Manifest.Permission.Camera));
+        }
+
+        private Boolean hasPermission(String perm)
+        {
+            return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             this.SetContentView(Resource.Layout.Main);
+            if (!canAccessLocation() || !canAccessCamera())
+            {
+                RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
+            }
+
 
 			if (!canAccessLocation() || !canAccessCamera())
 			{
@@ -28,7 +49,7 @@ namespace InspectionApp
 
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
-            Button btnMap = FindViewById<Button>(Resource.Id.btnMap);
+            ImageButton btnMap = FindViewById<ImageButton>(Resource.Id.btnMap);
             FillAudit.Click += FillAudit_Click;
             btnMap.Click += BtnMap_Click;
 
@@ -37,6 +58,11 @@ namespace InspectionApp
 
             var auditDetailsAdapter = new AuditDetailsAdapter(this);    
             auditListingView.Adapter = auditDetailsAdapter;
+            //List<AuditDetails> _auditDetailList = manageTemplate.GetAllAudit();
+            //if(_auditDetailList.Count ==0)
+            //{
+            //    auditListingView.setVisibility(View.INVISIBLE);
+            //}
             auditListingView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
                 long id = auditDetailsAdapter.GetItemId(e.Position);

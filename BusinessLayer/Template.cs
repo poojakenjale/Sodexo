@@ -50,7 +50,39 @@ namespace BusinessLayer
                     question4.TemplateId = id;
                     question4.QuestionDescription = "Have appropriate corrective actions been taken and recorded?";
                     dbUpdates.AddAuditQuestion(question4);
+
+                    AuditTemplate foodAudit4 = new AuditTemplate();
+                    foodAudit4.Name = "Pest Inspection";
+                    foodAudit4.Type = "Food";
+                     dbUpdates.AddTemplate(foodAudit4);
+
+                    AuditTemplate foodAudit5 = new AuditTemplate();
+                    foodAudit5.Name = "RestRoom Inspection";
+                    foodAudit5.Type = "Food";
+                     dbUpdates.AddTemplate(foodAudit5);
+
+                    AuditTemplate foodAudit1 = new AuditTemplate();
+                    foodAudit1.Name = "QA Audio Visual Inspection";
+                    foodAudit1.Type = "Food";
+                     dbUpdates.AddTemplate(foodAudit1);
+
+                    AuditTemplate foodAudit2 = new AuditTemplate();
+                    foodAudit2.Name = "Chevron Janitorial Services Survey Form v8";
+                    foodAudit2.Type = "Food";
+                     dbUpdates.AddTemplate(foodAudit2);
+
+                    AuditTemplate foodAudit3 = new AuditTemplate();
+                    foodAudit3.Name = "Chevron Site Services - Service Quality Inspection";
+                    foodAudit3.Type = "Food";
+                     dbUpdates.AddTemplate(foodAudit3);
+
+
+                    AuditTemplate foodAudit6 = new AuditTemplate();
+                    foodAudit6.Name = "Meeting Room Inspection ";
+                    foodAudit6.Type = "Food";
+                    dbUpdates.AddTemplate(foodAudit6);
                 }
+               
 
             }
             catch (Exception ex)

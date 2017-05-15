@@ -5,7 +5,7 @@ namespace BusinessObjects
 {
     public class AuditTemplate
     {
-        //[PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public String Name { get; set; }

@@ -6,6 +6,7 @@
   <string name="takePicture">Take Picture</string>
   <string name="back">Back</string>
   <string name="LoggedInUserName">Kenjale Pooja R</string>
+  <string name="done">Done</string>
   <string-array name="Answers_array">
     <item>Always</item>
     <item>Sometimes</item>

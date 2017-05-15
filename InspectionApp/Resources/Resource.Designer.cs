@@ -279,7 +279,13 @@ namespace InspectionApp
 			public const int Icon = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int Upload = 2130837529;
+			public const int Map = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int search = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int Upload = 2130837531;
 			
 			static Drawable()
 			{
@@ -321,8 +327,16 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09000f
 			public const int CreatedOn = 2131296271;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090031
 			public const int FillAudit = 2131296305;
+=======
+			// aapt resource value: 0x7f090033
+			public const int FillAudit = 2131296307;
+			
+			// aapt resource value: 0x7f090039
+			public const int Play = 2131296313;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090038
 			public const int Play = 2131296312;
@@ -336,11 +350,16 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09002b
 			public const int SaveQuestion = 2131296299;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090037
 			public const int Stop = 2131296311;
 			
 			// aapt resource value: 0x7f090032
 			public const int ViewAudit = 2131296306;
+=======
+			// aapt resource value: 0x7f090011
+			public const int absoluteLayout1 = 2131296273;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090005
 			public const int adjust_height = 2131296261;
@@ -360,8 +379,13 @@ namespace InspectionApp
 			// aapt resource value: 0x7f09002c
 			public const int btnBackToList = 2131296300;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f090030
 			public const int btnMap = 2131296304;
+=======
+			// aapt resource value: 0x7f090032
+			public const int btnMap = 2131296306;
+>>>>>>> origin/master
 			
 			// aapt resource value: 0x7f090016
 			public const int button1 = 2131296278;
@@ -464,6 +488,9 @@ namespace InspectionApp
 			
 			// aapt resource value: 0x7f090013
 			public const int textView2 = 2131296275;
+			
+			// aapt resource value: 0x7f090031
+			public const int txtSearch = 2131296305;
 			
 			// aapt resource value: 0x7f090009
 			public const int wide = 2131296265;
@@ -596,6 +623,9 @@ namespace InspectionApp
 			
 			// aapt resource value: 0x7f040012
 			public const int common_signin_button_text_long = 2130968594;
+			
+			// aapt resource value: 0x7f040018
+			public const int done = 2130968600;
 			
 			// aapt resource value: 0x7f040014
 			public const int openCamera = 2130968596;
