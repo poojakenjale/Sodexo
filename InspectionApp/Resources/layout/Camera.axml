@@ -22,15 +22,15 @@
         android:layout_gravity="left"
         android:layout_marginLeft="5dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp" />
-    <LinearLayout
+        android:layout_marginBottom="10dp" />
+<!--<LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal"
         android:showDividers="middle"
-        android:layout_below="@id/FillAudit"
+       
         android:scrollIndicators="none"
         android:layoutMode="opticalBounds"
         android:baselineAligned="true"
@@ -61,5 +61,5 @@
             android:layout_width="125dp"
             android:layout_height="40dp"
             android:textColor="#ffe0dbdb" />
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

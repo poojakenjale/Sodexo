@@ -83,20 +83,6 @@ namespace InspectionApp
             StartActivity(typeof(AuditDetailsActivity));
         }
 
-		private Boolean canAccessLocation()
-		{
-			return (hasPermission(Manifest.Permission.AccessFineLocation));
-		}
-
-		private Boolean canAccessCamera()
-		{
-			return (hasPermission(Manifest.Permission.Camera));
-		}
-
-		private Boolean hasPermission(String perm)
-		{
-			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
-		}
     }
 }
 

@@ -22,9 +22,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnBack"
                 android:gravity="center"
-                android:layout_marginTop="460dp" />
+                android:layout_marginTop="495dp" />
         </LinearLayout>
-        <LinearLayout
+    <!-- <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -62,6 +62,6 @@
                 android:layout_width="125dp"
                 android:layout_height="40dp"
                 android:textColor="#ffe0dbdb" />
-        </LinearLayout>
+        </LinearLayout>-->
     </RelativeLayout>
 </LinearLayout>
