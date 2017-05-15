@@ -2,25 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <Button
-        android:text="View Map"
-        android:layout_width="100dip"
-        android:layout_height="40dip"
+ <SearchView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/txtSearch"
+        android:layout_gravity="top"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="5dp" /> 
+    <ImageButton
+        android:layout_width="50dip"
+        android:layout_height="50dip"
         android:layout_marginTop="10dip"
         android:id="@+id/btnMap"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="false"
         android:layout_marginBottom="40dp"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/Map"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/txtSearch" />
     <ImageButton
         android:id="@+id/FillAudit"
         android:layout_width="50dip"
         android:layout_height="50dip"
         android:layout_marginTop="10dip"
-        android:layout_marginLeft="20dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginBottom="40dp"
         android:padding="100dip"
         android:src="@drawable/Add"
         android:layout_alignParentRight="true" />
-    <TextView
+<!--<TextView
         android:id="@+id/ViewAudit"
         android:layout_width="fill_parent"
         android:layout_height="30dp"
@@ -34,17 +47,17 @@
         android:drawablePadding="10dp"
         android:fitsSystemWindows="true"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/FillAudit" />
+        android:layout_below="@id/FillAudit" />-->
     <ListView
         android:id="@+id/AuditListingView"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/ViewAudit" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:layout_below="@id/txtSearch" 
+        />
+<!--<LinearLayout-->
+<!--android:id="@+id/linearLayout1"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:gravity="bottom"
@@ -81,5 +94,5 @@
             android:layout_width="125dp"
             android:layout_height="40dp"
             android:textColor="#ffe0dbdb" />
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>
