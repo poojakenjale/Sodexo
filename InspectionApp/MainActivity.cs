@@ -6,8 +6,7 @@ using Android.Content;
 using BusinessObjects;
 using System.Collections.Generic;
 using System;
-
-
+using Android;
 
 namespace InspectionApp
 {
@@ -22,6 +21,10 @@ namespace InspectionApp
             // Set our view from the "main" layout resource
             this.SetContentView(Resource.Layout.Main);
 
+			if (!canAccessLocation() || !canAccessCamera())
+			{
+				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
+			}
 
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
@@ -53,6 +56,21 @@ namespace InspectionApp
         {
             StartActivity(typeof(AuditDetailsActivity));
         }
+
+		private Boolean canAccessLocation()
+		{
+			return (hasPermission(Manifest.Permission.AccessFineLocation));
+		}
+
+		private Boolean canAccessCamera()
+		{
+			return (hasPermission(Manifest.Permission.Camera));
+		}
+
+		private Boolean hasPermission(String perm)
+		{
+			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+		}
     }
 }
 
