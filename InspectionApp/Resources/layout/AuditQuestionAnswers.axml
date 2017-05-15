@@ -15,7 +15,7 @@
             android:layout_height="30dip"
             android:layout_marginLeft="20dip"
             android:src="@drawable/Upload"
-            android:layout_marginTop="35dip"
+            android:layout_marginTop="30dip"
             android:layout_marginRight="5dp"
             android:scaleType="center"
             android:adjustViewBounds="true"
@@ -26,7 +26,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/Camera1"
-            android:textColor="@android:color/black"
+            android:textColor="#ff0a0505"
             android:text="Type here:"
             android:layout_margin="10dp" />
         <EditText
@@ -51,9 +51,7 @@
             android:textColor="@android:color/holo_blue_dark"
             android:layout_below="@id/Answer1"
             android:linksClickable="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_margin="5dp" />
         <ImageButton
             android:id="@+id/Camera2"
             android:layout_width="30dip"
@@ -72,7 +70,8 @@
             android:layout_toLeftOf="@id/Camera2"
             android:layout_below="@id/fileQuestion1"
             android:layout_margin="10dp"
-            android:width="320dp" />
+            android:width="320dp"
+            android:textColor="#ff000000" />
         <RadioGroup
             android:id="@+id/rdoQuestion2"
             android:layout_width="fill_parent"
@@ -85,16 +84,14 @@
                 android:layout_height="wrap_content"
                 android:text="Yes"
                 android:layout_marginLeft="10dp"
-                android:textColor="#ffacacac"
-                android:typeface="normal"
-                android:textStyle="bold" />
+                android:textColor="#000000"
+                android:typeface="normal" />
             <RadioButton
                 android:id="@+id/radio_No"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
-                android:textColor="#ffacacac"
-                android:textStyle="bold"
+                android:textColor="#000000"
                 android:typeface="normal"
                 android:layout_marginLeft="10dp" />
         </RadioGroup>
@@ -109,7 +106,7 @@
             android:textColor="@android:color/holo_blue_dark"
             android:layout_below="@id/rdoQuestion2"
             android:linksClickable="true"
-            android:layout_margin="10dp" />
+            android:layout_margin="5dp" />
         <ImageButton
             android:id="@+id/Camera3"
             android:layout_width="30dip"
@@ -127,15 +124,15 @@
             android:text="Type here:"
             android:layout_toLeftOf="@id/Camera3"
             android:layout_below="@id/fileQuestion2"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="#000000" />
         <CheckBox
             android:id="@+id/chkAnswer3"
             android:layout_width="wrap_content"
             android:layout_height="32.0dp"
             android:text="Yes"
             android:layout_below="@id/labelQuestion3"
-            android:textColor="#ffacacac"
-            android:textStyle="bold"
+            android:textColor="#000000"
             android:typeface="normal"
             android:layout_marginLeft="10dp" />
         <TextView
@@ -149,7 +146,7 @@
             android:textColor="@android:color/holo_blue_dark"
             android:layout_below="@id/chkAnswer3"
             android:linksClickable="true"
-            android:layout_margin="10dp" />
+            android:layout_margin="5dp" />
         <ImageButton
             android:id="@+id/Camera4"
             android:layout_width="30dip"
@@ -167,7 +164,8 @@
             android:text="Type here:"
             android:layout_toLeftOf="@id/Camera4"
             android:layout_below="@id/fileQuestion3"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="#000000" />
         <Spinner
             android:id="@+id/spinnerAnswer4"
             android:layout_width="fill_parent"
@@ -187,27 +185,40 @@
             android:textColor="@android:color/holo_blue_dark"
             android:layout_below="@id/spinnerAnswer4"
             android:linksClickable="true"
-            android:layout_margin="10dp" />
+            android:layout_margin="5dp" />
         <Button
             android:id="@+id/SaveQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/fileQuestion4"
-            android:layout_marginLeft="10dip"
             android:text="Save"
             android:typeface="normal"
-            android:textStyle="bold"
-            android:backgroundTint="#ff8d8d8d"
             android:gravity="center"
-            android:textColor="#ff781f1f"
+            android:textColor="#000000"
             android:textColorHighlight="#ffd7cbcb"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="5dp" />
         <Button
+            android:id="@+id/btnBackToList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fileQuestion4"
+            android:layout_marginLeft="5dip"
+            android:text="Back"
+            android:typeface="normal"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textColorHighlight="#ffd7cbcb"
+            android:layout_marginTop="40dp" />
+    <!-- <Button
             android:text="BACK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnBackToList" />
+            android:id="@+id/btnBackToList"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp" />
+        -->
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_height="wrap_content"

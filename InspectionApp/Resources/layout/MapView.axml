@@ -3,17 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
-        <Button
-            android:text="Back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnBack" />
-    </LinearLayout>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -22,5 +11,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             class="com.google.android.gms.maps.MapFragment" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1">
+            <Button
+                android:text="Back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBack"
+                android:gravity="center"
+                android:layout_marginTop="460dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            android:layout_below="@id/FillAudit"
+            android:scrollIndicators="none"
+            android:layoutMode="opticalBounds"
+            android:baselineAligned="true"
+            android:measureWithLargestChild="true"
+            android:splitMotionEvents="true"
+            android:contextClickable="true"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:text="HOME"
+                android:id="@+id/button1"
+                android:background="#7D090A"
+                android:layout_marginLeft="0dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+            <Button
+                android:text="Search"
+                android:id="@+id/button2"
+                android:background="#7D090A"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+            <Button
+                android:text="Setting"
+                android:id="@+id/button3"
+                android:background="#7D090A"
+                android:layout_marginRight="0dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
