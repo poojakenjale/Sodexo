@@ -275,28 +275,28 @@ namespace InspectionApp
             answer1.AuditId = Convert.ToInt32(auditID);
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
-            answer1.ImagePath =  AppFile._dir.ToString() + " " + fileQuestion1.Text;
+            answer1.ImagePath = AppFile._dir != null ?AppFile._dir.ToString() + " " + fileQuestion1.Text:string.Empty;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
             answer2.AuditId = Convert.ToInt32(auditID);
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
-			answer2.ImagePath = AppFile._dir.ToString() + " " + fileQuestion2.Text;
+			answer2.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion2.Text : string.Empty;
             userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
             answer3.AuditId = Convert.ToInt32(auditID);
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
-			answer3.ImagePath = AppFile._dir.ToString() + " " + fileQuestion3.Text;
+			answer3.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion3.Text : string.Empty;
             userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
             answer4.AuditId = Convert.ToInt32(auditID);
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
-			answer4.ImagePath = AppFile._dir.ToString() + " " + fileQuestion4.Text;
+			answer4.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion4.Text :string.Empty;
             userAnswers.Add(answer4);
 
 
