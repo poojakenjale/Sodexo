@@ -15,6 +15,7 @@ using Android.Text.Method;
 using Java.IO;
 using System.Collections;
 using System.IO;
+using Android.Preferences;
 
 namespace InspectionApp
 {
@@ -79,12 +80,11 @@ namespace InspectionApp
 			fileQuestion2.Visibility = ViewStates.Gone;
 			fileQuestion3.Visibility = ViewStates.Gone;
 			fileQuestion4.Visibility = ViewStates.Gone;
-			var intentQuestion = new Intent(this, typeof(CameraActivity));
-
-			OpenCamera(Camera1, "Question1", intentQuestion);
-			OpenCamera(Camera2, "Question2", intentQuestion);
-			OpenCamera(Camera3, "Question3", intentQuestion);
-			OpenCamera(Camera4, "Question4", intentQuestion);
+			
+			OpenCamera(Camera1);
+			OpenCamera(Camera2);
+			OpenCamera(Camera3);
+			OpenCamera(Camera4);
 
 			Spinner spinner = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
 
@@ -146,16 +146,7 @@ namespace InspectionApp
 
 				}
 				else
-                {   //Recover instance state
-                    if (bundle != null)
-                    {
-                        Answer1.Text = bundle.GetString("Answer1",string.Empty);
-                        int selectedRadioButtonId = bundle.GetInt("radioGroupId", 0);
-                        RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
-                        selectedradioButton.Checked = true;
-                        sp.SetSelection(Convert.ToInt32(bundle.GetLong("spinnerAnswer4")));
-                        checkbox.Checked = bundle.GetBoolean("chkAnswer3");
-                    }
+                {   
 
                     // Get images from gallery
                     if (image1 != string.Empty)
@@ -171,6 +162,30 @@ namespace InspectionApp
 			}
             else
             {
+                //Recover instance state
+                //if (bundle != null)
+                //{
+                //    Answer1.Text = bundle.GetString("Answer1", string.Empty);
+                //    int selectedRadioButtonId = bundle.GetInt("radioGroupId", 0);
+                //    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+                //    selectedradioButton.Checked = true;
+                //    sp.SetSelection(Convert.ToInt32(bundle.GetLong("spinnerAnswer4")));
+                //    checkbox.Checked = bundle.GetBoolean("chkAnswer3");
+                //    auditID = bundle.GetString("AuditId");
+                //}
+
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
+                if (prefs.Contains("AuditId"))
+                {
+                    Answer1.Text = prefs.GetString("Answer1", string.Empty);
+                    int selectedRadioButtonId = prefs.GetInt("radioGroupId", 0);
+                    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+                    selectedradioButton.Checked = true;
+                    sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
+                    checkbox.Checked = prefs.GetBoolean("chkAnswer3", false);
+                    auditID = prefs.GetString("AuditId", string.Empty);
+                    prefs.Edit().Clear().Commit();                    
+                }
                 BackToList.Visibility = Android.Views.ViewStates.Gone;
                 // Get images from gallery
                 if (image1 != string.Empty)
@@ -206,9 +221,28 @@ namespace InspectionApp
             outState.PutInt("radioGroupId", radioGroup.CheckedRadioButtonId);
             outState.PutLong("spinnerAnswer4", sp.SelectedItemPosition);
             outState.PutBoolean("chkAnswer3", checkbox.Checked);
+            outState.PutString("AuditId", auditID);
 
             // always call the base implementation
             base.OnSaveInstanceState(outState);
+        }
+
+        private void SaveState()
+        { 
+            //Saving data in SaredPreference
+            EditText Answer1 = FindViewById<EditText>(Resource.Id.Answer1);
+            RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.rdoQuestion2);            
+            var sp = FindViewById<Spinner>(Resource.Id.spinnerAnswer4);
+            CheckBox checkbox = FindViewById<CheckBox>(Resource.Id.chkAnswer3);
+
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
+            ISharedPreferencesEditor editor = prefs.Edit();           
+            editor.PutString("Answer1", Answer1.Text);
+            editor.PutInt("radioGroupId", radioGroup.CheckedRadioButtonId);
+            editor.PutLong("spinnerAnswer4", sp.SelectedItemPosition);
+            editor.PutBoolean("chkAnswer3", checkbox.Checked);
+            editor.PutString("AuditId", auditID);
+            editor.Apply();
         }
 
         private void BackToList_Click(object sender, EventArgs e)
@@ -337,13 +371,38 @@ namespace InspectionApp
 			};
 		}
 
-		private void OpenCamera(ImageButton button, string question, Intent intentQuestion)
+		private void OpenCamera(ImageButton button)
 		{
-			button.Click += delegate {
-				intentQuestion.PutExtra("Question", question);
-				pushDataForImageFile(intentQuestion);
-				StartActivity(intentQuestion);
-			};
+            button.Click += CameraButton_Click;     
 		}
-	}
+
+        private void CameraButton_Click(object sender, EventArgs e)
+        {
+            SaveState();
+
+            ImageButton cameraButton = (ImageButton)sender;
+            string question = string.Empty;
+            string buttonName = Resources.GetResourceEntryName(cameraButton.Id);
+            var intentQuestion = new Intent(this, typeof(CameraActivity));
+            switch (buttonName)
+            {
+                case "Camera1":
+                    question = "Question1";
+                    break;
+                case "Camera2":
+                    question = "Question2";
+                    break;
+                case "Camera3":
+                    question = "Question3";
+                    break;
+                case "Camera4":
+                    question = "Question4";
+                    break;
+            }
+
+            intentQuestion.PutExtra("Question", question);
+            pushDataForImageFile(intentQuestion);
+            StartActivity(intentQuestion);
+        }
+    }
 }
