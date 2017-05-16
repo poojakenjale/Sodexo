@@ -7,6 +7,7 @@ using BusinessObjects;
 using System.Collections.Generic;
 using System;
 using Android;
+using Android.Views;
 
 namespace InspectionApp
 {
@@ -56,8 +57,14 @@ namespace InspectionApp
             manageTemplate.SetContext(this);
             List<AuditDetails> auditTest = manageTemplate.GetAllAudit();
 
-            var auditDetailsAdapter = new AuditDetailsAdapter(this);    
+            var auditDetailsAdapter = new AuditDetailsAdapter(this);
+            var textview = new TextView(auditListingView.Context);
+            var emptyView = FindViewById<TextView>(Resource.Id.emptyView);
+            emptyView.Text = "There are no saved audits, to add a new audit, please click on ‘add new’ button.";
+            auditListingView.EmptyView = emptyView;
+            //((ViewGroup)auditListingView.Parent).AddView(textview);
             auditListingView.Adapter = auditDetailsAdapter;
+           
             //List<AuditDetails> _auditDetailList = manageTemplate.GetAllAudit();
             //if(_auditDetailList.Count ==0)
             //{

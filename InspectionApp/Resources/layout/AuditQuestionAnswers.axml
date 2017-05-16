@@ -173,7 +173,8 @@
             android:prompt="@string/Answer_prompt"
             android:layout_below="@id/labelQuestion4"
             android:layout_margin="10dp"
-            android:backgroundTint="#a7555353" />
+            android:backgroundTint="#a7555353"
+            android:textColor="#ff0c0303" />
         <TextView
             android:text="Text"
             android:layout_width="match_parent"

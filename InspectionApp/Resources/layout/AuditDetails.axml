@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView1"
             android:id="@+id/spnTemplates"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"            />
         <TextView
             android:text="Enter Location"
             android:layout_width="match_parent"
@@ -38,7 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView2"
             android:id="@+id/eTextLocation"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="#ff0c0303"
+            android:background="#ffd1d1d1" />
         <Button
             android:id="@+id/next"
             android:text="Next"

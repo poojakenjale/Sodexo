@@ -90,8 +90,8 @@ namespace InspectionApp
 
             //spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.Answers_array, Android.Resource.Layout.SimpleSpinnerItem);
-
+                    this, Resource.Array.Answers_array, Resource.Layout.spinner_item);
+            adapter.SetDropDownViewResource(Resource.Layout.spinner_item);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
@@ -102,6 +102,9 @@ namespace InspectionApp
             Question2.Text = Questions[1].QuestionDescription;
             Question3.Text = Questions[2].QuestionDescription;
             Question4.Text = Questions[3].QuestionDescription;
+
+
+
             if (!string.IsNullOrEmpty(isNewAudit))//view mode
             {
                 SaveQuestion.Visibility = Android.Views.ViewStates.Gone;
@@ -111,7 +114,9 @@ namespace InspectionApp
 				if (auditAnswers.Count > 0)
 				{
 					Answer1.Text = auditAnswers[0].Answer;
-					if (auditAnswers[1].Answer.ToUpper() == "YES")
+                    Answer1.Enabled = radioButtonYes.Enabled = radioButtonNo.Enabled = checkbox.Enabled = false;
+                    Answer1.Focusable = false;
+                    if (auditAnswers[1].Answer.ToUpper() == "YES")
 					{
 						radioButtonYes.Checked = true;
 					}
@@ -119,7 +124,9 @@ namespace InspectionApp
 					{
 						radioButtonNo.Checked = true;
 					}
-					if (auditAnswers[2].Answer == "True")
+                    
+
+                    if (auditAnswers[2].Answer == "True")
 					{
 						checkbox.Checked = true;
 					}
@@ -127,22 +134,32 @@ namespace InspectionApp
 					{
 						checkbox.Checked = false;
 					}
-					ArrayAdapter answersAdapater = ArrayAdapter.CreateFromResource(
-					this, Resource.Array.Answers_array, Android.Resource.Layout.SimpleSpinnerItem);
-					spinner.SetSelection(answersAdapater.GetPosition(auditAnswers[3].Answer));
+                    
+                    ArrayAdapter answersAdapater = ArrayAdapter.CreateFromResource(
+					this, Resource.Array.Answers_array, Resource.Layout.spinner_item);
+                    answersAdapater.SetDropDownViewResource(Resource.Layout.spinner_item);
+                    spinner.SetSelection(answersAdapater.GetPosition(auditAnswers[3].Answer));
+                    spinner.Enabled = false;
+                    //camera code
+                    if (auditAnswers[0].ImagePath != string.Empty)
+                        GetImagePathForExisitng(auditAnswers[0].ImagePath, fileQuestion1, 1);
+                    else
+                        Camera1.Enabled = false;
 
-					//camera code
-					if (auditAnswers[0].ImagePath != string.Empty)
-						GetImagePathForExisitng(auditAnswers[0].ImagePath, fileQuestion1, 1);
+                    if (auditAnswers[1].ImagePath != string.Empty)
+                        GetImagePathForExisitng(auditAnswers[1].ImagePath, fileQuestion2, 2);
+                    else
+                        Camera2.Enabled = false;
 
-					if (auditAnswers[1].ImagePath != string.Empty)
-						GetImagePathForExisitng(auditAnswers[1].ImagePath, fileQuestion2, 2);
+                    if (auditAnswers[2].ImagePath != string.Empty)
+                        GetImagePathForExisitng(auditAnswers[2].ImagePath, fileQuestion3, 3);
+                    else
+                        Camera3.Enabled = false;
 
-					if (auditAnswers[2].ImagePath != string.Empty)
-						GetImagePathForExisitng(auditAnswers[2].ImagePath, fileQuestion3, 3);
-
-					if (auditAnswers[3].ImagePath != string.Empty)
-						GetImagePathForExisitng(auditAnswers[3].ImagePath, fileQuestion4, 4);
+                    if (auditAnswers[3].ImagePath != string.Empty)
+                        GetImagePathForExisitng(auditAnswers[3].ImagePath, fileQuestion4, 4);
+                    else
+                        Camera4.Enabled = false;
 
 				}
 				else
@@ -162,18 +179,7 @@ namespace InspectionApp
 			}
             else
             {
-                //Recover instance state
-                //if (bundle != null)
-                //{
-                //    Answer1.Text = bundle.GetString("Answer1", string.Empty);
-                //    int selectedRadioButtonId = bundle.GetInt("radioGroupId", 0);
-                //    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
-                //    selectedradioButton.Checked = true;
-                //    sp.SetSelection(Convert.ToInt32(bundle.GetLong("spinnerAnswer4")));
-                //    checkbox.Checked = bundle.GetBoolean("chkAnswer3");
-                //    auditID = bundle.GetString("AuditId");
-                //}
-
+               
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
                 if (prefs.Contains("AuditId"))
                 {
