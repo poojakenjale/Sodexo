@@ -11,12 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1" />
-    <AbsoluteLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/absoluteLayout1" />
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -24,30 +18,75 @@
             android:text="Select Template"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView1" />
+            android:id="@+id/textView1"
+            android:layout_margin="10dp" />
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView1"
-            android:id="@+id/spnTemplates" />
+            android:id="@+id/spnTemplates"
+            android:layout_margin="10dp"            />
         <TextView
             android:text="Enter Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/spnTemplates"
-            android:id="@+id/textView2" />
+            android:id="@+id/textView2"
+            android:layout_margin="10dp" />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView2"
-            android:id="@+id/eTextLocation" />
+            android:id="@+id/eTextLocation"
+            android:layout_margin="10dp"
+            android:textColor="#ff0c0303"
+            android:background="#ffd1d1d1" />
         <Button
             android:id="@+id/next"
+            android:text="Next"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/eTextLocation"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dip"
-            android:text="Next" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp" />
+    <!--<LinearLayout
+            android:id="@+id/linearLayout1"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            android:scrollIndicators="none"
+            android:layoutMode="opticalBounds"
+            android:baselineAligned="true"
+            android:measureWithLargestChild="true"
+            android:splitMotionEvents="true"
+            android:contextClickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:text="HOME"
+                android:id="@+id/button1"
+                android:background="#7D090A"
+                android:layout_marginLeft="0dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+            <Button
+                android:text="Search"
+                android:id="@+id/button2"
+                android:background="#7D090A"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+            <Button
+                android:text="Setting"
+                android:id="@+id/button3"
+                android:background="#7D090A"
+                android:layout_marginRight="0dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:textColor="#ffe0dbdb" />
+        </LinearLayout>-->
     </RelativeLayout>
 </LinearLayout>

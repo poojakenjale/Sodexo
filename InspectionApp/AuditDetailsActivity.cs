@@ -32,16 +32,30 @@ namespace InspectionApp
             manageTemplate.SetDefaultTemplate();
             templateList = manageTemplate.GetTemplates();
             InitializeLocationManager();
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, templateList);
+            ArrayAdapter adapter = new ArrayAdapter(this, Resource.Layout.spinner_item, templateList);
+            adapter.SetDropDownViewResource(Resource.Layout.spinner_item);
             adapter.SetDropDownViewResource
                 (Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
             Spinner spnTemplate = FindViewById<Spinner>(Resource.Id.spnTemplates);
             spnTemplate.Adapter = adapter;
+            
 
             Button saveAditDetails = FindViewById<Button>(Resource.Id.next);
             saveAditDetails.Click += SaveAditDetails_Click;
-        }
+            saveAditDetails.Enabled = false;
+
+            EditText location = FindViewById<EditText>(Resource.Id.eTextLocation);
+            location.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+            {
+                if(spnTemplate.SelectedItem.ToString() !="" && location.Text != string.Empty)
+                {
+                    saveAditDetails.Enabled = true;
+                }
+            };
+
+
+            }
 
         private void SaveAditDetails_Click(object sender, EventArgs e)
         {

@@ -4,6 +4,7 @@
     <style name="MyCustomTheme" parent="android:Theme.Material.Light">
         <!-- Override the app bar color -->
         <item name="android:colorPrimary">@color/my_red</item>
+      <item name="android:textColorPrimary">@color/my_white</item>
         <!-- Override the color of UI controls -->
         <!--<item name="android:colorAccent">@color/my_purple</item>-->
         <!-- Override the color of Text -->
