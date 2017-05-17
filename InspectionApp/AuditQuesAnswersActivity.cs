@@ -210,7 +210,7 @@ namespace InspectionApp
 
 				//EditText Answer1 = FindViewById<EditText>(Resource.Id.Answer1);
 			
-                Answer1.FocusChange += (sender, e) =>
+                Answer1.TextChanged += (sender, e) =>
                 {
                     // perform a simple "required" validation
                     if ((Answer1).Text.Length > 0)
