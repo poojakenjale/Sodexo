@@ -1,17 +1,16 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using BusinessLayer;
+﻿using Android;
+using Android.App;
 using Android.Content;
+using Android.OS;
+using Android.Widget;
+using BusinessLayer;
 using BusinessObjects;
-using System.Collections.Generic;
 using System;
-using Android;
-using Android.Views;
+using System.Collections.Generic;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
+	[Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
@@ -20,8 +19,13 @@ namespace InspectionApp
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            this.SetContentView(Resource.Layout.Main);
+			if (!CanAccessLocation() || !CanAccessCamera() || !CanWriteExternalStorage())
+			{
+				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.Camera, Manifest.Permission.WriteExternalStorage }, 1);
+			}
+
+			// Set our view from the "main" layout resource
+			this.SetContentView(Resource.Layout.Main);
 
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
@@ -59,6 +63,26 @@ namespace InspectionApp
             StartActivity(typeof(AuditDetailsActivity));
         }
 
-    }
+		private Boolean CanAccessLocation()
+		{
+			return (HasPermission(Manifest.Permission.AccessFineLocation));
+		}
+
+		private Boolean CanAccessCamera()
+		{
+			return (HasPermission(Manifest.Permission.Camera));
+		}
+
+		private Boolean CanWriteExternalStorage()
+		{
+			return (HasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean HasPermission(String perm)
+		{
+			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+		}
+
+	}
 }
 
