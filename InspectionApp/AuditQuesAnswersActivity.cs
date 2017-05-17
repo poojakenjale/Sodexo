@@ -185,9 +185,12 @@ namespace InspectionApp
                 {
                     Answer1.Text = prefs.GetString("Answer1", string.Empty);
                     int selectedRadioButtonId = prefs.GetInt("radioGroupId", 0);
-                    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
-                    selectedradioButton.Checked = true;
-                    sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
+					if (selectedRadioButtonId > -1)
+					{
+						RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+						selectedradioButton.Checked = true;
+					}
+					sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
                     checkbox.Checked = prefs.GetBoolean("chkAnswer3", false);
                     auditID = prefs.GetString("AuditId", string.Empty);
                     prefs.Edit().Clear().Commit();                    

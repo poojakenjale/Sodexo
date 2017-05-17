@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Threading;
+using Android;
+using Android.Content;
 
 namespace InspectionApp
 {
@@ -19,10 +21,34 @@ namespace InspectionApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Thread.Sleep(2000);
-            StartActivity(typeof(MainActivity));
+ 
+			if (!canAccessLocation() || !canAccessCamera() || !canWriteExternalStorage())
+			{
+				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.Camera, Manifest.Permission.WriteExternalStorage }, 1);
+			}
 
-            // Create your application here
+			Thread.Sleep(1500);
+			StartActivity(typeof(MainActivity));
         }
-    }
+
+		private Boolean canAccessLocation()
+		{
+			return (hasPermission(Manifest.Permission.AccessFineLocation));
+		}
+
+		private Boolean canAccessCamera()
+		{
+			return (hasPermission(Manifest.Permission.Camera));
+		}
+
+		private Boolean canWriteExternalStorage()
+		{
+			return (hasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean hasPermission(String perm)
+		{
+			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+		}
+	}
 }
