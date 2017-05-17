@@ -193,6 +193,8 @@ namespace InspectionApp
                     prefs.Edit().Clear().Commit();                    
                 }
                 BackToList.Visibility = Android.Views.ViewStates.Gone;
+                //BackToList.Text = "Cancel";
+
                 // Get images from gallery
                 if (image1 != string.Empty)
 					ViewImage(fileQuestion1, image1, "Question1");
@@ -202,6 +204,19 @@ namespace InspectionApp
 					ViewImage(fileQuestion3, image3, "Question3");
 				if (image4 != string.Empty)
 					ViewImage(fileQuestion4, image4, "Question4");
+
+				//EditText Answer1 = FindViewById<EditText>(Resource.Id.Answer1);
+			
+                Answer1.FocusChange += (sender, e) =>
+                {
+                    // perform a simple "required" validation
+                    if ((Answer1).Text.Length > 0)
+					{
+						SaveQuestion.Enabled = true;
+					}
+
+                };
+
 
 				SaveQuestion.Click += SaveQuestion_Click;
             }
@@ -214,6 +229,10 @@ namespace InspectionApp
             //    StartActivity(intentVideo);
             //};
         }
+       
+
+
+
 
         protected override void OnSaveInstanceState(Bundle outState)
         {

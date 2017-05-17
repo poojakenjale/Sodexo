@@ -19,19 +19,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView1"
+            android:textColor="#ff0c0303"
             android:layout_margin="10dp" />
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView1"
             android:id="@+id/spnTemplates"
-            android:layout_margin="10dp"            />
+            android:layout_margin="10dp" />
         <TextView
             android:text="Enter Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/spnTemplates"
             android:id="@+id/textView2"
+            android:textColor="#ff0c0303"
             android:layout_margin="10dp" />
         <EditText
             android:layout_width="match_parent"
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:textColor="#ff0c0303"
             android:layout_marginBottom="10dp" />
     <!--<LinearLayout
             android:id="@+id/linearLayout1"

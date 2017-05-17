@@ -11,34 +11,49 @@
     <SearchView
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_width="280dip"
+        android:layout_height="32dp"
         android:background="#ffe9e7e7"
         android:id="@+id/txtSearch"
         android:layout_gravity="top"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentLeft="true" />
     <ImageButton
-        android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:layout_marginTop="10dip"
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:layout_marginTop="12dip"
         android:id="@+id/btnMap"
         android:layout_alignParentBottom="false"
         android:layout_marginBottom="40dp"
         android:src="@drawable/Map"
         android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@id/txtSearch" />
+        android:layout_toRightOf="@id/txtSearch"
+        android:layout_marginLeft="10dp" />
+<!-- <ImageButton
+            android:id="@+id/Camera1"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_marginLeft="20dip"
+            android:src="@drawable/Upload"
+            android:layout_marginTop="30dip"
+            android:layout_marginRight="5dp"
+            android:scaleType="center"
+            android:adjustViewBounds="true"
+            android:baselineAlignBottom="false"
+            android:layout_alignParentRight="true" />-->
     <ImageButton
         android:id="@+id/FillAudit"
-        android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:layout_marginTop="10dip"
-        android:layout_marginLeft="5dip"
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:layout_marginTop="15dip"
         android:layout_marginBottom="40dp"
         android:padding="100dip"
         android:src="@drawable/Add"
-        android:layout_alignParentRight="true" />
+        android:layout_toRightOf="@+id/btnMap"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="15dp" />
 <!--<TextView
         android:id="@+id/ViewAudit"
         android:layout_width="fill_parent"
@@ -62,7 +77,7 @@
         android:minHeight="25dp"
         android:layout_gravity="top"
         android:layout_marginTop="65dp" />
-      <TextView
+    <TextView
         android:id="@+id/emptyView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
