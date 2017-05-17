@@ -600,8 +600,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f040012
 			public const int common_signin_button_text_long = 2130968594;
 			
-			// aapt resource value: 0x7f040017
-			public const int done = 2130968599;
+			// aapt resource value: 0x7f040018
+			public const int done = 2130968600;
 			
 			// aapt resource value: 0x7f040014
 			public const int openCamera = 2130968596;

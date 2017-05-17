@@ -54,10 +54,25 @@ namespace InspectionApp
                     Gmap.AddMarker(options);
                 }            
             }
-            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 15);
+            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 8);
             Gmap.MoveCamera(camera);
-            Gmap.MarkerClick += MapOnMarkerClick;
+            Gmap.UiSettings.ZoomControlsEnabled = true;
+            Gmap.UiSettings.ZoomGesturesEnabled = true;
+            
+            Gmap.InfoWindowClick += Gmap_InfoWindowClick; ;
         }
+
+        private void Gmap_InfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
+        {
+            
+            Marker marker = e.Marker;
+
+            var questionAnswer = new Intent(this, typeof(AuditQuesAnswersActivity));
+            questionAnswer.PutExtra("auditId", marker.Alpha.ToString());
+            questionAnswer.PutExtra("isNewAudit", false.ToString());
+            StartActivity(questionAnswer);
+        }
+
         private void SetupMap()
         {
             if (Gmap == null)
