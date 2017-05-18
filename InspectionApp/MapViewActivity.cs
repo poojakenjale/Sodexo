@@ -23,7 +23,7 @@ namespace InspectionApp
         List<AuditDetails> _auditDetailList;
         private Template manageTemplate = new Template();
         private GoogleMap Gmap;
-       
+        List<AuditTemplate> _auditTemplateList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -44,18 +44,28 @@ namespace InspectionApp
             this.Gmap = googleMap;
             LatLng latlng = null;
             _auditDetailList = manageTemplate.GetAllAudit();
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            _auditTemplateList = manageTemplate.GetTemplates();
             foreach (AuditDetails auditDetail in _auditDetailList)
             {
                 string [] gpsCoordinates = auditDetail.GPSCoordinate.Split(',');
                 if (gpsCoordinates.Count() > 0)
                 {
                     latlng = new LatLng(Convert.ToDouble(gpsCoordinates[0]), Convert.ToDouble(gpsCoordinates[1]));
-                    MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle(auditDetail.Location).SetAlpha(auditDetail.Id);
+                    MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetAlpha(auditDetail.Id);
+                    var templatedetails = _auditTemplateList.Find(t => t.Id == auditDetail.TemplateId);
+                    options.SetTitle(string.Concat(templatedetails.Name, "-", auditDetail.Location));
+                    options.SetSnippet(GetString(Resource.String.LoggedInUserName) + "\n" + DateTime.Today.ToShortDateString());
+                   
                     Gmap.AddMarker(options);
+                    builder.Include(latlng);
                 }            
             }
-            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 8);
-            Gmap.MoveCamera(camera);
+            LatLngBounds bounds = builder.Build();
+            CameraUpdate cu = CameraUpdateFactory.NewLatLngBounds(bounds, 0);
+            googleMap.MoveCamera(cu);
+            //CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(latlng, 8);
+            //Gmap.MoveCamera(camera);
             Gmap.UiSettings.ZoomControlsEnabled = true;
             Gmap.UiSettings.ZoomGesturesEnabled = true;
             
