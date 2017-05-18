@@ -15,11 +15,7 @@ namespace InspectionApp
     {
         private Template manageTemplate = new Template();
 
-		protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
-
-        private Boolean canAccessCamera()
+		private Boolean canAccessCamera()
         {
             return (hasPermission(Manifest.Permission.Camera));
         }
@@ -27,6 +23,11 @@ namespace InspectionApp
 		private Boolean canWriteExternalStorage()
 		{
 			return (hasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean canAccessLocation()
+		{
+			return (hasPermission(Manifest.Permission.AccessFineLocation));
 		}
 
 		private Boolean canReadExternalStorage()
