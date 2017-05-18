@@ -26,7 +26,17 @@ namespace InspectionApp
             return (hasPermission(Manifest.Permission.Camera));
         }
 
-        private Boolean hasPermission(String perm)
+		private Boolean canWriteExternalStorage()
+		{
+			return (hasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean canReadExternalStorage()
+		{
+			return (hasPermission(Manifest.Permission.ReadExternalStorage));
+		}
+
+		private Boolean hasPermission(String perm)
         {
             return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
         }
@@ -37,16 +47,16 @@ namespace InspectionApp
 
             // Set our view from the "main" layout resource
             this.SetContentView(Resource.Layout.Main);
-            if (!canAccessLocation() || !canAccessCamera())
+            if (!canAccessLocation() || !canAccessCamera() || !canWriteExternalStorage() || !canReadExternalStorage())
             {
-                RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
+                RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera, Manifest.Permission.WriteExternalStorage, Manifest.Permission.ReadExternalStorage }, 1);
             }
 
 
-			if (!canAccessLocation() || !canAccessCamera())
-			{
-				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
-			}
+			//if (!canAccessLocation() || !canAccessCamera())
+			//{
+			//	RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
+			//}
 
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);

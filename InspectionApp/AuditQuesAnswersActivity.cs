@@ -22,10 +22,10 @@ namespace InspectionApp
     [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class AuditQuesAnswersActivity : Activity
     {
-		TextView fileQuestion1;
-		TextView fileQuestion2;
-		TextView fileQuestion3;
-		TextView fileQuestion4;
+		ImageButton viewImage1;
+		ImageButton viewImage2;
+		ImageButton viewImage3;
+		ImageButton viewImage4;
 		string image1 = string.Empty;
 		string image2 = string.Empty;
 		string image3 = string.Empty;
@@ -71,16 +71,20 @@ namespace InspectionApp
 			ImageButton Camera4 = FindViewById<ImageButton>(Resource.Id.Camera4);
 
 			//Camera
-			fileQuestion1 = FindViewById<TextView>(Resource.Id.fileQuestion1);
-			fileQuestion2 = FindViewById<TextView>(Resource.Id.fileQuestion2);
-			fileQuestion3 = FindViewById<TextView>(Resource.Id.fileQuestion3);
-			fileQuestion4 = FindViewById<TextView>(Resource.Id.fileQuestion4);
+			viewImage1 = FindViewById<ImageButton>(Resource.Id.viewImage1);
+			viewImage2 = FindViewById<ImageButton>(Resource.Id.viewImage2);
+			viewImage3 = FindViewById<ImageButton>(Resource.Id.viewImage3);
+			viewImage4 = FindViewById<ImageButton>(Resource.Id.viewImage4);
 
-			fileQuestion1.Visibility = ViewStates.Gone;
-			fileQuestion2.Visibility = ViewStates.Gone;
-			fileQuestion3.Visibility = ViewStates.Gone;
-			fileQuestion4.Visibility = ViewStates.Gone;
-			
+			Camera1.Visibility = ViewStates.Gone;
+			Camera2.Visibility = ViewStates.Gone;
+			Camera3.Visibility = ViewStates.Gone;
+			Camera4.Visibility = ViewStates.Gone;
+			viewImage1.Visibility = ViewStates.Gone;
+			viewImage2.Visibility = ViewStates.Gone;
+			viewImage3.Visibility = ViewStates.Gone;
+			viewImage4.Visibility = ViewStates.Gone;
+
 			OpenCamera(Camera1);
 			OpenCamera(Camera2);
 			OpenCamera(Camera3);
@@ -142,38 +146,42 @@ namespace InspectionApp
                     spinner.Enabled = false;
                     //camera code
                     if (auditAnswers[0].ImagePath != string.Empty)
-                        GetImagePathForExisitng(auditAnswers[0].ImagePath, fileQuestion1, 1);
-                    else
-                        Camera1.Enabled = false;
+                        GetVisibilityForViewCamera(auditAnswers[0].ImagePath, viewImage1, 1);
+					else
+						Camera1.Visibility = ViewStates.Gone;
 
-                    if (auditAnswers[1].ImagePath != string.Empty)
-                        GetImagePathForExisitng(auditAnswers[1].ImagePath, fileQuestion2, 2);
-                    else
-                        Camera2.Enabled = false;
+					if (auditAnswers[1].ImagePath != string.Empty)
+						GetVisibilityForViewCamera(auditAnswers[1].ImagePath, viewImage2, 2);
+					else
+						Camera2.Visibility = ViewStates.Gone;
 
-                    if (auditAnswers[2].ImagePath != string.Empty)
-                        GetImagePathForExisitng(auditAnswers[2].ImagePath, fileQuestion3, 3);
-                    else
-                        Camera3.Enabled = false;
+					if (auditAnswers[2].ImagePath != string.Empty)
+						GetVisibilityForViewCamera(auditAnswers[2].ImagePath, viewImage3, 3);
+					else
+						Camera3.Visibility = ViewStates.Gone;
 
-                    if (auditAnswers[3].ImagePath != string.Empty)
-                        GetImagePathForExisitng(auditAnswers[3].ImagePath, fileQuestion4, 4);
-                    else
-                        Camera4.Enabled = false;
+					if (auditAnswers[3].ImagePath != string.Empty)
+						GetVisibilityForViewCamera(auditAnswers[3].ImagePath, viewImage4, 4);
+					else
+						Camera4.Visibility = ViewStates.Gone;
 
 				}
 				else
-                {   
+                {
 
-                    // Get images from gallery
-                    if (image1 != string.Empty)
-						ViewImage(fileQuestion1, image1, "Question1");
+					// Get images from gallery
+					if (image1 != string.Empty)
+						ViewImage(viewImage1, image1, "Question1");
+					else
+						Camera1.Visibility = ViewStates.Visible;
 					if (image2 != string.Empty)
-						ViewImage(fileQuestion2, image2, "Question2");
+						ViewImage(viewImage2, image2, "Question2");
+					else
+						Camera2.Visibility = ViewStates.Visible;
 					if (image3 != string.Empty)
-						ViewImage(fileQuestion3, image3, "Question3");
+						ViewImage(viewImage3, image3, "Question3");
 					if (image4 != string.Empty)
-						ViewImage(fileQuestion4, image4, "Question4");
+						ViewImage(viewImage4, image4, "Question4");
 				}
 
 			}
@@ -185,8 +193,12 @@ namespace InspectionApp
                 {
                     Answer1.Text = prefs.GetString("Answer1", string.Empty);
                     int selectedRadioButtonId = prefs.GetInt("radioGroupId", 0);
-                    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
-                    selectedradioButton.Checked = true;
+
+					if (selectedRadioButtonId != -1)
+					{
+						RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+						selectedradioButton.Checked = true;
+					}
                     sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
                     checkbox.Checked = prefs.GetBoolean("chkAnswer3", false);
                     auditID = prefs.GetString("AuditId", string.Empty);
@@ -195,13 +207,21 @@ namespace InspectionApp
                 BackToList.Visibility = Android.Views.ViewStates.Gone;
                 // Get images from gallery
                 if (image1 != string.Empty)
-					ViewImage(fileQuestion1, image1, "Question1");
+					ViewImage(viewImage1, image1, "Question1");
+				else
+					Camera1.Visibility = ViewStates.Visible;
 				if (image2 != string.Empty)
-					ViewImage(fileQuestion2, image2, "Question2");
+					ViewImage(viewImage2, image2, "Question2");
+				else
+					Camera2.Visibility = ViewStates.Visible;
 				if (image3 != string.Empty)
-					ViewImage(fileQuestion3, image3, "Question3");
+					ViewImage(viewImage3, image3, "Question3");
+				else
+					Camera3.Visibility = ViewStates.Visible;
 				if (image4 != string.Empty)
-					ViewImage(fileQuestion4, image4, "Question4");
+					ViewImage(viewImage4, image4, "Question4");
+				else
+					Camera4.Visibility = ViewStates.Visible;
 
 				SaveQuestion.Click += SaveQuestion_Click;
             }
@@ -281,28 +301,28 @@ namespace InspectionApp
             answer1.AuditId = Convert.ToInt32(auditID);
             answer1.Answer = Answer1.Text;
             answer1.QuestionId = 1;
-            answer1.ImagePath = AppFile._dir != null ?AppFile._dir.ToString() + " " + fileQuestion1.Text:string.Empty;
+            answer1.ImagePath = image1 != string.Empty ? AppFile._dir.ToString() + "/" + image1:string.Empty;
             userAnswers.Add(answer1);
 
             AuditAnswers answer2 = new AuditAnswers();
             answer2.AuditId = Convert.ToInt32(auditID);
             answer2.Answer = radioButton.Text;
             answer2.QuestionId = 2;
-			answer2.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion2.Text : string.Empty;
+			answer2.ImagePath = image2 != string.Empty ? AppFile._dir.ToString() + "/" + image2 : string.Empty;
             userAnswers.Add(answer2);
 
             AuditAnswers answer3 = new AuditAnswers();
             answer3.AuditId = Convert.ToInt32(auditID);
             answer3.Answer = checkbox.Checked.ToString();
             answer3.QuestionId = 3;
-			answer3.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion3.Text : string.Empty;
+			answer3.ImagePath = image3 != string.Empty ? AppFile._dir.ToString() + "/" + image3 : string.Empty;
             userAnswers.Add(answer3);
 
             AuditAnswers answer4 = new AuditAnswers();
             answer4.AuditId = Convert.ToInt32(auditID);
             answer4.Answer = sp.SelectedItem.ToString();
             answer4.QuestionId = 4;
-			answer4.ImagePath = AppFile._dir != null ? AppFile._dir.ToString() + " " + fileQuestion4.Text :string.Empty;
+			answer4.ImagePath = image4 != string.Empty ? AppFile._dir.ToString() + "/" + image4 :string.Empty;
             userAnswers.Add(answer4);
 
 
@@ -318,6 +338,8 @@ namespace InspectionApp
 			intent.PutExtra("Image2", image2);
 			intent.PutExtra("Image3", image3);
 			intent.PutExtra("Image4", image4);
+			intent.PutExtra("auditId", auditID);
+			intent.PutExtra("isNewAudit", isNewAudit);
 		}
 
 		private void getDataForImageFile(Intent intent)
@@ -328,12 +350,12 @@ namespace InspectionApp
 			image4 = intent.GetStringExtra("Image4") ?? "";
 		}
 
-		private void ViewImage(TextView txtView, string imageFile, string question)
+		private void ViewImage(ImageButton viewImage, string imageFile, string question)
 		{
-			txtView.Visibility = ViewStates.Visible;
-			txtView.Text = imageFile;
-			txtView.MovementMethod = LinkMovementMethod.Instance;
-			txtView.Click += delegate {
+			viewImage.Visibility = ViewStates.Visible;
+			//txtView.Text = imageFile;
+			//txtView.MovementMethod = LinkMovementMethod.Instance;
+			viewImage.Click += delegate {
 				var intent = new Intent(this, typeof(CameraActivity));
 				pushDataForImageFile(intent);
 				intent.PutExtra("viewImage", "1");
@@ -342,37 +364,39 @@ namespace InspectionApp
 			};
 		}
 
-		private void GetImagePathForExisitng(string imageFile, TextView txtView, int control)
+		private void GetVisibilityForViewCamera(string imageFile, ImageButton viewImage, int control)
 		{
-			txtView.Visibility = ViewStates.Visible;
-			txtView.MovementMethod = LinkMovementMethod.Instance;
-			txtView.Text = Path.GetFileName(imageFile);
+			viewImage.Visibility = ViewStates.Visible;
+			//txtView.MovementMethod = LinkMovementMethod.Instance;
+			//txtView.Text = Path.GetFileName(imageFile);
+			string path = Path.GetFileName(imageFile);
 			string question = string.Empty;
 			switch (control)
 			{
 				case 1:
-					image1 = txtView.Text;
+					image1 = path;
 					question = "Question1";
 						break;
 				case 2:
-					image2 = txtView.Text;
+					image2 = path;
 					question = "Question2";
 					break;
 				case 3:
-					image3 = txtView.Text;
+					image3 = path;
 					question = "Question3";
 					break;
 				case 4:
-					image4 = txtView.Text;
+					image4 = path;
 					question = "Question4";
 					break;
 			}
 
-			txtView.Click += delegate {
+			viewImage.Click += delegate {
 				var intent = new Intent(this, typeof(CameraActivity));
 				pushDataForImageFile(intent);
 				intent.PutExtra("viewImage", "1");
 				intent.PutExtra("Question", question);
+				pushDataForImageFile(intent);
 				StartActivity(intent);
 			};
 		}

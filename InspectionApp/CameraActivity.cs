@@ -25,14 +25,16 @@ namespace InspectionApp
 		string image3 = string.Empty;
 		string image4 = string.Empty;
 		string Question = string.Empty;
+		string auditID = string.Empty;
+		string isNewAudit = string.Empty;
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
 			SetContentView(Resource.Layout.Camera);
-			Button takePicture = FindViewById<Button>(Resource.Id.takePicture);
+			//Button takePicture = FindViewById<Button>(Resource.Id.takePicture);
 			back = FindViewById<Button>(Resource.Id.back);
-			takePicture.Visibility = Android.Views.ViewStates.Visible;
+			//takePicture.Visibility = Android.Views.ViewStates.Visible;
 			_imageCamera = FindViewById<ImageView>(Resource.Id.imageCamera);
 			viewImage = Intent.GetStringExtra("viewImage") ?? "";
 			image1 = Intent.GetStringExtra("Image1") ?? "";
@@ -40,13 +42,16 @@ namespace InspectionApp
 			image3 = Intent.GetStringExtra("Image3") ?? "";
 			image4 = Intent.GetStringExtra("Image4") ?? "";
 			Question = Intent.GetStringExtra("Question") ?? "";
+			auditID = Intent.GetStringExtra("auditId");
+			isNewAudit = Intent.GetStringExtra("isNewAudit");
 
 			if (viewImage != "1")
 			{
+				back.Visibility = Android.Views.ViewStates.Gone;
 				if (IsThereAnAppToTakePictures())
 				{
 					CreateDirectoryForPictures();
-					takePicture.Click += TakeAPicture;
+					TakeAPicture();
 				}
 			}
 			else
@@ -54,11 +59,11 @@ namespace InspectionApp
 				string fileName = (Question == "Question1") ? image1 : (Question == "Question2") ? image2 : (Question == "Question3") ? image3 : image4;
 				AppFile._file = new File(AppFile._dir, fileName);
 				_imageCamera.SetImageURI(Android.Net.Uri.FromFile(AppFile._file));
-				takePicture.Visibility = Android.Views.ViewStates.Gone;
+				//takePicture.Visibility = Android.Views.ViewStates.Gone;
 
 				back.Click += delegate {
 					var second = new Intent(this, typeof(AuditQuesAnswersActivity));
-					pushDataForImageFile(second);
+					pushDataForImageFile(second,Result.Ok, Question);
 					StartActivity(second);
 				};
 			}
@@ -81,7 +86,7 @@ namespace InspectionApp
 			return availableActivities != null && availableActivities.Count > 0;
 		}
 
-		private void TakeAPicture(object sender, EventArgs eventArgs)
+		private void TakeAPicture()
 		{
 			Intent intent = new Intent(MediaStore.ActionImageCapture);
 			AppFile._file = new File(AppFile._dir, String.Format("myPhoto_{0}_{1}.jpg", Guid.NewGuid(), Question));
@@ -102,7 +107,7 @@ namespace InspectionApp
 					break;
 			}
 			intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(AppFile._file));
-			pushDataForImageFile(intent);
+			//pushDataForImageFile(intent);
 			StartActivityForResult(intent, 0);
 		}
 
@@ -129,22 +134,49 @@ namespace InspectionApp
 				AppFile.bitmap = null;
 			}
 
-			back.Click += delegate {
-				var second = new Intent(this, typeof(AuditQuesAnswersActivity));
-				pushDataForImageFile(second);
-				StartActivity(second);
-			};
+			var second = new Intent(this, typeof(AuditQuesAnswersActivity));
+			pushDataForImageFile(second, resultCode, Question);
+			StartActivity(second);
+
+			//back.Click += delegate {
+			//	var second = new Intent(this, typeof(AuditQuesAnswersActivity));
+			//	pushDataForImageFile(second, resultCode, Question);
+			//	StartActivity(second);
+			//};
 
 			// Dispose of the Java side bitmap.
 			GC.Collect();
 		}
 
-		private void pushDataForImageFile(Intent intent)
+		private void pushDataForImageFile(Intent intent, Result resultCode, string question)
 		{
+			if (resultCode == Result.Canceled)
+			{
+				switch (question)
+				{
+					case "Question1":
+						image1 = string.Empty;
+						break;
+					case "Question2":
+						image2 = string.Empty;
+						break;
+					case "Question3":
+						image3 = string.Empty;
+						break;
+					case "Question4":
+						image4 = string.Empty;
+						break;
+
+				}
+			}
+			
 			intent.PutExtra("Image1", image1);
 			intent.PutExtra("Image2", image2);
 			intent.PutExtra("Image3", image3);
 			intent.PutExtra("Image4", image4);
+			intent.PutExtra("auditId", auditID);
+			intent.PutExtra("isNewAudit", isNewAudit);
+
 		}
 	}
 }
