@@ -1,25 +1,23 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using BusinessLayer;
+﻿using Android;
+using Android.App;
 using Android.Content;
+using Android.OS;
+using Android.Widget;
+using BusinessLayer;
 using BusinessObjects;
-using System.Collections.Generic;
 using System;
-using Android;
-using Android.Views;
+using System.Collections.Generic;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
+	[Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
 
-        private Boolean canAccessLocation()
+		protected override void OnCreate(Bundle bundle)
         {
-            return (hasPermission(Manifest.Permission.AccessFineLocation));
-        }
+            base.OnCreate(bundle);
 
         private Boolean canAccessCamera()
         {
@@ -70,16 +68,10 @@ namespace InspectionApp
             var auditDetailsAdapter = new AuditDetailsAdapter(this);
             var textview = new TextView(auditListingView.Context);
             var emptyView = FindViewById<TextView>(Resource.Id.emptyView);
-            emptyView.Text = "There are no saved audits, to add a new audit, please click on ‘add new’ button.";
+            emptyView.Text = "There are no saved audits.";
             auditListingView.EmptyView = emptyView;
-            //((ViewGroup)auditListingView.Parent).AddView(textview);
             auditListingView.Adapter = auditDetailsAdapter;
-           
-            //List<AuditDetails> _auditDetailList = manageTemplate.GetAllAudit();
-            //if(_auditDetailList.Count ==0)
-            //{
-            //    auditListingView.setVisibility(View.INVISIBLE);
-            //}
+
             auditListingView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
                 long id = auditDetailsAdapter.GetItemId(e.Position);
@@ -100,6 +92,26 @@ namespace InspectionApp
             StartActivity(typeof(AuditDetailsActivity));
         }
 
-    }
+		private Boolean CanAccessLocation()
+		{
+			return (HasPermission(Manifest.Permission.AccessFineLocation));
+		}
+
+		private Boolean CanAccessCamera()
+		{
+			return (HasPermission(Manifest.Permission.Camera));
+		}
+
+		private Boolean CanWriteExternalStorage()
+		{
+			return (HasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean HasPermission(String perm)
+		{
+			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+		}
+
+	}
 }
 
