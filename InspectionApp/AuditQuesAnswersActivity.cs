@@ -185,14 +185,19 @@ namespace InspectionApp
                 {
                     Answer1.Text = prefs.GetString("Answer1", string.Empty);
                     int selectedRadioButtonId = prefs.GetInt("radioGroupId", 0);
-                    RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
-                    selectedradioButton.Checked = true;
-                    sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
+					if (selectedRadioButtonId > -1)
+					{
+						RadioButton selectedradioButton = FindViewById<RadioButton>(selectedRadioButtonId);
+						selectedradioButton.Checked = true;
+					}
+					sp.SetSelection(Convert.ToInt32(prefs.GetLong("spinnerAnswer4", 0)));
                     checkbox.Checked = prefs.GetBoolean("chkAnswer3", false);
                     auditID = prefs.GetString("AuditId", string.Empty);
                     prefs.Edit().Clear().Commit();                    
                 }
                 BackToList.Visibility = Android.Views.ViewStates.Gone;
+                //BackToList.Text = "Cancel";
+
                 // Get images from gallery
                 if (image1 != string.Empty)
 					ViewImage(fileQuestion1, image1, "Question1");
@@ -202,6 +207,19 @@ namespace InspectionApp
 					ViewImage(fileQuestion3, image3, "Question3");
 				if (image4 != string.Empty)
 					ViewImage(fileQuestion4, image4, "Question4");
+
+				//EditText Answer1 = FindViewById<EditText>(Resource.Id.Answer1);
+			
+                Answer1.TextChanged += (sender, e) =>
+                {
+                    // perform a simple "required" validation
+                    if ((Answer1).Text.Length > 0)
+					{
+						SaveQuestion.Enabled = true;
+					}
+
+                };
+
 
 				SaveQuestion.Click += SaveQuestion_Click;
             }
@@ -214,6 +232,10 @@ namespace InspectionApp
             //    StartActivity(intentVideo);
             //};
         }
+       
+
+
+
 
         protected override void OnSaveInstanceState(Bundle outState)
         {

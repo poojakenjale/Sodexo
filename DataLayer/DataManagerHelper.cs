@@ -1,17 +1,17 @@
-using Android.Database.Sqlite;
 using Android.Content;
+using Android.Database.Sqlite;
 
 namespace DataLayer
 {
-    public class DataManagerHelper : SQLiteOpenHelper
+	public class DataManagerHelper : SQLiteOpenHelper
     {
         // specifies the database name
-        private const string DatabaseName = "Sodexo";
+        private const string Database_Name = "Sodexo";
         //specifies the database version (increment this number each time you make database related changes)
         private const int DatabaseVersion = 1;
 
         public DataManagerHelper(Context context)
-            : base(context, DatabaseName, null, DatabaseVersion)
+            : base(context, Database_Name, null, DatabaseVersion)
         {
         }
 

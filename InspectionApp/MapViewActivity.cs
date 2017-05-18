@@ -21,6 +21,7 @@ namespace InspectionApp
     public class MapViewActivity : Activity, IOnMapReadyCallback
     {
         List<AuditDetails> _auditDetailList;
+        List<AuditTemplate> _auditTemplates;
         private Template manageTemplate = new Template();
         private GoogleMap Gmap;
         List<AuditTemplate> _auditTemplateList;
@@ -46,6 +47,7 @@ namespace InspectionApp
             _auditDetailList = manageTemplate.GetAllAudit();
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             _auditTemplateList = manageTemplate.GetTemplates();
+            _auditTemplates = manageTemplate.GetTemplates();
             foreach (AuditDetails auditDetail in _auditDetailList)
             {
                 string [] gpsCoordinates = auditDetail.GPSCoordinate.Split(',');

@@ -1,52 +1,31 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using BusinessLayer;
+﻿using Android;
+using Android.App;
 using Android.Content;
+using Android.OS;
+using Android.Widget;
+using BusinessLayer;
 using BusinessObjects;
-using System.Collections.Generic;
 using System;
-using Android;
-using Android.Views;
+using System.Collections.Generic;
 
 namespace InspectionApp
 {
-    [Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
+	[Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
 
-        private Boolean canAccessLocation()
-        {
-            return (hasPermission(Manifest.Permission.AccessFineLocation));
-        }
-
-        private Boolean canAccessCamera()
-        {
-            return (hasPermission(Manifest.Permission.Camera));
-        }
-
-        private Boolean hasPermission(String perm)
-        {
-            return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
-        }
-
-        protected override void OnCreate(Bundle bundle)
+		protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            this.SetContentView(Resource.Layout.Main);
-            if (!canAccessLocation() || !canAccessCamera())
-            {
-                RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
-            }
-
-
-			if (!canAccessLocation() || !canAccessCamera())
+			if (!CanAccessLocation() || !CanAccessCamera() || !CanWriteExternalStorage())
 			{
-				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.Camera }, 1);
+				RequestPermissions(new string[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.Camera, Manifest.Permission.WriteExternalStorage }, 1);
 			}
+
+			// Set our view from the "main" layout resource
+			this.SetContentView(Resource.Layout.Main);
 
             ImageButton FillAudit = FindViewById<ImageButton>(Resource.Id.FillAudit);
             ListView auditListingView = FindViewById<ListView>(Resource.Id.AuditListingView);
@@ -60,16 +39,10 @@ namespace InspectionApp
             var auditDetailsAdapter = new AuditDetailsAdapter(this);
             var textview = new TextView(auditListingView.Context);
             var emptyView = FindViewById<TextView>(Resource.Id.emptyView);
-            emptyView.Text = "There are no saved audits, to add a new audit, please click on ‘add new’ button.";
+            emptyView.Text = "There are no saved audits.";
             auditListingView.EmptyView = emptyView;
-            //((ViewGroup)auditListingView.Parent).AddView(textview);
             auditListingView.Adapter = auditDetailsAdapter;
-           
-            //List<AuditDetails> _auditDetailList = manageTemplate.GetAllAudit();
-            //if(_auditDetailList.Count ==0)
-            //{
-            //    auditListingView.setVisibility(View.INVISIBLE);
-            //}
+
             auditListingView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
                 long id = auditDetailsAdapter.GetItemId(e.Position);
@@ -90,6 +63,26 @@ namespace InspectionApp
             StartActivity(typeof(AuditDetailsActivity));
         }
 
-    }
+		private Boolean CanAccessLocation()
+		{
+			return (HasPermission(Manifest.Permission.AccessFineLocation));
+		}
+
+		private Boolean CanAccessCamera()
+		{
+			return (HasPermission(Manifest.Permission.Camera));
+		}
+
+		private Boolean CanWriteExternalStorage()
+		{
+			return (HasPermission(Manifest.Permission.WriteExternalStorage));
+		}
+
+		private Boolean HasPermission(String perm)
+		{
+			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
+		}
+
+	}
 }
 
