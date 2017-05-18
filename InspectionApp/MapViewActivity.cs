@@ -21,6 +21,7 @@ namespace InspectionApp
     public class MapViewActivity : Activity, IOnMapReadyCallback
     {
         List<AuditDetails> _auditDetailList;
+        List<AuditTemplate> _auditTemplates;
         private Template manageTemplate = new Template();
         private GoogleMap Gmap;
        
@@ -44,13 +45,16 @@ namespace InspectionApp
             this.Gmap = googleMap;
             LatLng latlng = null;
             _auditDetailList = manageTemplate.GetAllAudit();
+            _auditTemplates = manageTemplate.GetTemplates();
             foreach (AuditDetails auditDetail in _auditDetailList)
             {
                 string [] gpsCoordinates = auditDetail.GPSCoordinate.Split(',');
                 if (gpsCoordinates.Count() > 0)
                 {
                     latlng = new LatLng(Convert.ToDouble(gpsCoordinates[0]), Convert.ToDouble(gpsCoordinates[1]));
-                    MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle(auditDetail.Location).SetAlpha(auditDetail.Id);
+                    var templatedetails = _auditTemplates.Find(t => t.Id == auditDetail.TemplateId);
+                    string title = string.Concat(templatedetails.Name, "-", auditDetail.Location);
+                    MarkerOptions options = new MarkerOptions().SetPosition(latlng).SetTitle(title).SetAlpha(auditDetail.Id);
                     Gmap.AddMarker(options);
                 }            
             }
