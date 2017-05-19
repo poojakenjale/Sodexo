@@ -374,6 +374,7 @@ namespace InspectionApp
 			//txtView.Text = imageFile;
 			//txtView.MovementMethod = LinkMovementMethod.Instance;
 			viewImage.Click += delegate {
+				SaveState();
 				var intent = new Intent(this, typeof(CameraActivity));
 				pushDataForImageFile(intent);
 				intent.PutExtra("viewImage", "1");
@@ -410,8 +411,8 @@ namespace InspectionApp
 			}
 
 			viewImage.Click += delegate {
+				SaveState();
 				var intent = new Intent(this, typeof(CameraActivity));
-				pushDataForImageFile(intent);
 				intent.PutExtra("viewImage", "1");
 				intent.PutExtra("Question", question);
 				pushDataForImageFile(intent);
