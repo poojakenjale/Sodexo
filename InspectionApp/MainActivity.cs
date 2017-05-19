@@ -8,14 +8,17 @@ using BusinessObjects;
 using System;
 using System.Collections.Generic;
 
+
+
 namespace InspectionApp
 {
 	[Activity(Label = "INSPECTION", Theme = "@style/MyCustomTheme", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Template manageTemplate = new Template();
-
-		private Boolean canAccessCamera()
+        
+        private AuditDetailsAdapter _adapter;
+        private Boolean canAccessCamera()
         {
             return (hasPermission(Manifest.Permission.Camera));
         }
@@ -72,8 +75,16 @@ namespace InspectionApp
             emptyView.Text = "There are no saved audits.";
             auditListingView.EmptyView = emptyView;
             auditListingView.Adapter = auditDetailsAdapter;
+            
+            
+            SearchView _searchview = FindViewById<SearchView>(Resource.Id.txtSearch);
 
-            auditListingView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+            _searchview.QueryTextChange += (object sender, SearchView.QueryTextChangeEventArgs e) =>
+            {
+                auditDetailsAdapter.filter(e.NewText);
+            };
+ 
+             auditListingView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
             {
                 long id = auditDetailsAdapter.GetItemId(e.Position);
                 var activity2 = new Intent(this, typeof(AuditQuesAnswersActivity));
@@ -83,6 +94,12 @@ namespace InspectionApp
             };            
         }
 
+        private void _searchView_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+       
         private void BtnMap_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(MapViewActivity));
@@ -113,6 +130,8 @@ namespace InspectionApp
 			return (CheckSelfPermission(perm) == Android.Content.PM.Permission.Granted);
 		}
 
-	}
+  
+
+    }
 }
 

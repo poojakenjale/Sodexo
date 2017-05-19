@@ -5,4 +5,7 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
   </style>
+  <style name="SearchTextViewTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <item name="android:textColor">@color/my_black</item>
+</style>
 </resources>

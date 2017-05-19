@@ -10,11 +10,14 @@
         android:layout_height="32dp"
         android:background="#ffe9e7e7"
         android:id="@+id/txtSearch"
-        android:layout_gravity="top"
+        android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="5dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:theme="@style/SearchTextViewTheme"
+        />
+  
     <ImageButton
         android:layout_width="32dip"
         android:layout_height="32dip"

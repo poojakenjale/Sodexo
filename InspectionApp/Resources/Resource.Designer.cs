@@ -151,8 +151,8 @@ namespace InspectionApp
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f06000a
-			public const int common_google_signin_btn_text_dark = 2131099658;
+			// aapt resource value: 0x7f06000b
+			public const int common_google_signin_btn_text_dark = 2131099659;
 			
 			// aapt resource value: 0x7f060000
 			public const int common_google_signin_btn_text_dark_default = 2131099648;
@@ -166,8 +166,8 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060003
 			public const int common_google_signin_btn_text_dark_pressed = 2131099651;
 			
-			// aapt resource value: 0x7f06000b
-			public const int common_google_signin_btn_text_light = 2131099659;
+			// aapt resource value: 0x7f06000c
+			public const int common_google_signin_btn_text_light = 2131099660;
 			
 			// aapt resource value: 0x7f060004
 			public const int common_google_signin_btn_text_light_default = 2131099652;
@@ -181,8 +181,11 @@ namespace InspectionApp
 			// aapt resource value: 0x7f060007
 			public const int common_google_signin_btn_text_light_pressed = 2131099655;
 			
-			// aapt resource value: 0x7f06000c
-			public const int common_google_signin_btn_tint = 2131099660;
+			// aapt resource value: 0x7f06000d
+			public const int common_google_signin_btn_tint = 2131099661;
+			
+			// aapt resource value: 0x7f06000a
+			public const int my_black = 2131099658;
 			
 			// aapt resource value: 0x7f060008
 			public const int my_red = 2131099656;
@@ -622,8 +625,11 @@ namespace InspectionApp
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f080002
+			public const int MyCustomTheme = 2131230722;
+			
 			// aapt resource value: 0x7f080001
-			public const int MyCustomTheme = 2131230721;
+			public const int SearchTextViewTheme = 2131230721;
 			
 			// aapt resource value: 0x7f080000
 			public const int Theme_Splash = 2131230720;
