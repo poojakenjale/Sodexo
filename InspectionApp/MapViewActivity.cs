@@ -63,7 +63,7 @@ namespace InspectionApp
 			}
 
 			LatLngBounds bounds = builder.Build();
-			CameraUpdate cu = CameraUpdateFactory.NewLatLngBounds(bounds, Resources.DisplayMetrics.WidthPixels, Resources.DisplayMetrics.HeightPixels, 20);
+			CameraUpdate cu = CameraUpdateFactory.NewLatLngBounds(bounds, Resources.DisplayMetrics.WidthPixels, Resources.DisplayMetrics.HeightPixels, 120);
 			googleMap.MoveCamera(cu);
 
 			Gmap.InfoWindowClick += Gmap_InfoWindowClick;
